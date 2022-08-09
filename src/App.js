@@ -1,9 +1,12 @@
 import Footer from "./Components/footer/Footer";
-
+import "./app.css"
 function App() {
   return (
-    <div className="App">
-      <Footer/>
+    <div className="page-container">
+      <div className="content-wrap">
+    
+      </div>
+      <Footer />
     </div>
   );
 }
