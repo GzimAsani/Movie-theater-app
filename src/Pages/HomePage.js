@@ -1,15 +1,10 @@
-import Footer from '../Components/footer/Footer';
-import './homePage.css'
+import "./homePage.css";
 
- function HomePage() {
+function HomePage() {
   return (
-    <div className='page-container'>
-        <div className='content-wrap'>
-         </div>
-
-           <Footer/>
-           
-        </div>
-  )
+    <div className="page-container">
+      <div className="content-wrap"></div>
+    </div>
+  );
 }
 export default HomePage;
