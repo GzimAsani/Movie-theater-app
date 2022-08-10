@@ -1,0 +1,21 @@
+.movieDetail-contanier{
+    background-color: #000000;
+    color: #fff;
+}
+.movie{
+    margin: 20px;
+}
+.movie h4{
+    padding-top: 20px;
+}
+.movie-text{
+    padding-top: 30px;
+}
+.movie-span{
+    color: #FF8E3C;
+}
+.line{
+
+   border: 1px solid #B8B8B8;
+   margin: 40px;
+}
