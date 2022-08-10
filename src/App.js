@@ -1,18 +1,27 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import "./app.css"
+import React from 'react';
 import HomePage from "./Pages/HomePage";
-import MovieDetail from './Components/movieDetail/MovieDetail';
-function App() {
+import './app.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Navbar from './Components/navbar/Navbar';
+import Dashboard from './pages/Dashboard';
+import Concessions from './pages/Concessions';
+import Footer from "./Components/footer/Footer"
+
+
+const App = () => {
   return (
-    <div className="App">
     <BrowserRouter>
-      <Routes>
+      <Navbar>
+        <Routes>
           <Route path="/" element= {<HomePage/>} />
-          <Route path="movieDetail" element ={<MovieDetail/>}/>
-      </Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/Conccesions" element={<Concessions />} />
+          <Route path="/movieDetail" element ={<MovieDetail/>}/>
+        </Routes>
+      </Navbar>
+      <Footer />
     </BrowserRouter>
-  </div>
   );
-}
+};
 
 export default App;
