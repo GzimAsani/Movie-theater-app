@@ -1,1 +1,26 @@
-/*     Footer CSS     */
+.main-footer {
+    color: white;
+    background-color: #121418;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  .row{
+    display: flex;
+    padding: 40px;
+  }
+  .list-unstyled li{
+    list-style-type: none;
+  }
+.col h4 {
+    margin-left:20px;
+    padding: 20px;
+}
+  .list-icon {
+    display: flex;
+  }
+  .list-icon li {
+    list-style-type: none;
+    padding: 5px;
+  }
+  
