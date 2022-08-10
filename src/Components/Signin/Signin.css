@@ -1,0 +1,13 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+label {
+    display: inline-block;
+    width: 100px;
+}
+input{
+    margin: 10px 20px;
+}
