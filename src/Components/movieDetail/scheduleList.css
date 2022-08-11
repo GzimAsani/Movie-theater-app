@@ -1,0 +1,175 @@
+.movie-schedule {
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content: center;
+  min-height:100px;
+  padding:50px 0;
+    flex-wrap:wrap;
+  }
+  
+  .movie-schedule-title {
+    font-size:25px;
+  }
+  
+  .movie-schedule-container {
+    width:100%;
+    display:flex;
+    flex-direction: row;
+    align-items:flex-start;
+    max-width:100%;
+    justify-content: flex-start;
+    flex-wrap:wrap;
+  }
+  
+  .movie-schedule-form {
+    width:500px;
+    display:flex;
+    flex-direction: column;
+    padding:30px 0;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .movie-schedule-form h2 {
+    font-size:20px;
+    margin: 30px 0;
+  }
+  .movie-schedule-form-select {
+    position:relative;
+  }
+  .movie-schedule-form-select select {
+    width:360px;
+    height:50px;
+    border-radius:5px;
+    background-color:#121418;
+    border: 1px solid #121418;
+    padding:0 10px;
+    font-size:15px;
+    color:white;
+    appearance: none;
+  
+  }
+  
+  .select-icon {
+    margin-left: -30px;
+    color :#FF8E3C
+  }
+  .movie-schedule-info {
+    width:800px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction: row;
+    flex-wrap:wrap;
+  }
+  
+  .movie-schedule-item {
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:20px;
+    border-bottom: 1px solid #B8B8B8;
+  
+    justify-content:flex-start;
+    flex-direction: row;
+    flex-wrap:wrap;
+  }
+  
+  .movie-item-date {
+    display:flex;
+    width:170px;
+    align-items:center;
+    justify-content:center;
+    flex-direction: column;
+    flex-wrap:wrap;
+  }
+  
+  .movie-item-date h3 {
+    font-size:15px;
+    padding:3px 0;
+    margin-bottom:1px;
+  
+  }
+  
+  .movie-item-date p {
+    color:#E16162;
+    font-size:14px;
+  }
+  
+  .movie-item-time {
+    width:170px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction: column;
+    flex-wrap:wrap;
+  }
+  
+  .movie-item-time h3 {
+    font-size:15px;
+    padding:3px 0;
+    text-align:center;
+    margin-bottom:1px;
+  
+  
+  }
+  
+  .movie-item-time p {
+    color:#E16162;
+    font-size:14px;
+  }
+  
+  .movie-icon {
+    color:#2FED84;
+    margin-bottom: -5px;
+    font-size: 20px;
+    margin-left:5px;
+  }
+  
+  @media (max-width:768px) {
+  
+    .movie-schedule-form {
+      width:100%;
+      display:flex;
+      flex-direction: center;
+      align-items:center;
+      justify-content: center;
+      flex-wrap:wrap;
+    }
+  .movie-schedule-info {
+    display:flex;
+    width:100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  
+  }
+  
+    .movie-schedule-form-select select {
+      width:250px;
+    }
+  .select-icon {
+    margin-left: -30px;
+    color :#FF8E3C
+  }
+  
+  .movie-schedule-item {
+    width:100%;
+    display:flex;
+    align-items:center;
+  
+  
+    justify-content:center;
+    flex-direction: row;
+    flex-wrap:wrap;
+  }
+  
+  }
+  
+  @media (max-width:576px) {
+    .movie-schedule-form-select select {
+      width:150px;
+    }
+  }
