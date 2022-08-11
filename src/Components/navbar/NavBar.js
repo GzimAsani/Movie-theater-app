@@ -5,6 +5,8 @@ import {
     FaUserAlt,
 }from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
+import { DashboardIcon, PopcornIcon } from '../../Icons';
+import "../navbar/navbar.css"
 
 
 const Navbar = ({children}) => {
@@ -14,18 +16,18 @@ const Navbar = ({children}) => {
         {
             path:"/",
             name:"Dashboard",
-            icon:<FaTh/>
+            icon: <DashboardIcon/>
         },
         {
             path:"/Conccesions",
             name:"Concessions",
-            icon:<FaUserAlt/>
+            icon: <PopcornIcon/>
         },
        
     ]
     return (
         <div className="container">
-           <div style={{width: isOpen ? "200px" : "50px"}} className="sidebar">
+           <div style={{width: isOpen ? "300px" : "60px"}} className="sidebar">
                <div className="top_section">
                    <h1 style={{display: isOpen ? "block" : "none"}} className="logo">EaglesCinema</h1>
                    <div style={{marginLeft: isOpen ? "50px" : "0px"}} className="bars">
@@ -35,7 +37,7 @@ const Navbar = ({children}) => {
                {
                    menuItem.map((item, index)=>(
                        <NavLink to={item.path} key={index} className="link" activeclassName="active">
-                           <div className="icon">{item.icon}</div>
+                           <div className="icon">{item.icon}</div>                   
                            <div style={{display: isOpen ? "block" : "none"}} className="link_text">{item.name}</div>
                        </NavLink>
                    ))
