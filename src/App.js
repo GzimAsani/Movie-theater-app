@@ -3,23 +3,29 @@ import HomePage from "./Pages/HomePage";
 import "./app.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./Components/navbar/NavBar";
-import Dashboard from "./pages/Dashboard";
-import Concessions from "./pages/Concessions";
+import Dashboard from "./Pages/Dashboard";
+import Concessions from "./Pages/Concessions";
 import Footer from "./Components/footer/Footer";
+import SignUp from "./Components/SignUp/SignUp";
+import Login from "./Components/Login/Login";
 import MovieDetail from "./Components/movieDetail/MovieDetail";
 
 const App = () => {
   return (
     <BrowserRouter>
+    <div className="app-contanier">
       <Navbar>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/Conccesions" element={<Concessions />} />
-          <Route path="/movieDetail" element={<MovieDetail />} />
+          <Route path="/MovieDetail" element={<MovieDetail/>} />
+          <Route path="/SignUp" element={<SignUp/>} />
+          <Route path="/Login" element={<Login/>}/>
         </Routes>
       </Navbar>
       <Footer />
+      </div>
     </BrowserRouter>
   );
 };

@@ -1,9 +1,17 @@
 .movieDetail-contanier{
-    background-color: #000000;
+    margin-left: 40px;
+    margin-top: 60px;
     color: #fff;
+}
+
+.movieDetail-contanier img{
+
+  margin-left: 40px;
+
 }
 .movie{
     margin: 20px;
+    margin-left: 40px;
 }
 .movie h4{
     padding-top: 20px;
