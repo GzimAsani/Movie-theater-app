@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import {
     FaTh,
     FaBars,
@@ -25,9 +26,9 @@ const Navbar = ({children}) => {
     ]
     return (
         <div className="container">
-           <div style={{width: isOpen ? "200px" : "50px"}} className="sidebar">
+           <div style={{width: isOpen ? "230px" : "50px"}} className="sidebar">
                <div className="top_section">
-                   <h1 style={{display: isOpen ? "block" : "none"}} className="logo">EaglesCinema</h1>
+                   <h3 style={{display: isOpen ? "block" : "none"}} >EaglesCinema</h3>
                    <div style={{marginLeft: isOpen ? "50px" : "0px"}} className="bars">
                        <FaBars onClick={toggle}/>
                    </div>
