@@ -1,0 +1,31 @@
+.banner {
+   position: relative;
+   width: 320px;
+   height: 220px;
+   object-fit: container;
+   position:relative;
+   outline: none;
+   border:none;
+   margin: 10px;
+   border-width:0;
+   
+}
+
+.movie_title {
+    position:absolute;
+    bottom: 40px;
+    left:10px;
+    color:white;
+    
+}
+.movie-button{
+    position:absolute;
+    bottom:10px;
+    left:10px;
+    background: #FF9933;
+    color:white;
+    outline:none;
+    border: none;
+    border-width:0;
+}
+
