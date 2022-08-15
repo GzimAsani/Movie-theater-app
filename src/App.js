@@ -4,7 +4,7 @@ import "./app.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./Components/navbar/NavBar";
 import Dashboard from "./Pages/Dashboard";
-import Concessions from "./Pages/Concessions";
+import Movies from "./Pages/Movies";
 import Footer from "./Components/footer/Footer";
 import SignUp from "./Components/SignUp/SignUp";
 import Login from "./Components/Login/Login";
@@ -18,7 +18,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/Conccesions" element={<Concessions />} />
+          <Route path="/Movies" element={<Movies />} />
           <Route path="/MovieDetail" element={<MovieDetail/>} />
           <Route path="/SignUp" element={<SignUp/>} />
           <Route path="/Login" element={<Login/>}/>

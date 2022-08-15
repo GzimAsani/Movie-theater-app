@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Concessions() {
+function Movies() {
   return (
     <div>
       jbfejke
@@ -8,4 +8,4 @@ function Concessions() {
   )
 }
 
-export default Concessions
+export default Movies
