@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import {
-    FaTh,
-    FaBars,
-    FaUserAlt,
-}from "react-icons/fa";
-import { NavLink } from 'react-router-dom';
+import React, { useState } from "react";
+import { FaTh, FaBars, FaUserAlt } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+import { DashboardIcon, PopcornIcon } from "../../Icons";
+import "../navbar/navbar.css";
+
 
 
 const Navbar = ({children}) => {
@@ -42,8 +41,28 @@ const Navbar = ({children}) => {
                }
            </div>
            <main>{children}</main>
+
         </div>
-    );
+        {menuItem.map((item, index) => (
+          <NavLink
+            to={item.path}
+            key={index}
+            className="link"
+            activeclassName="active"
+          >
+            <div className="icon">{item.icon}</div>
+            <div
+              style={{ display: isOpen ? "block" : "none" }}
+              className="link_text"
+            >
+              {item.name}
+            </div>
+          </NavLink>
+        ))}
+      </div>
+      <main>{children}</main>
+    </div>
+  );
 };
 
 export default Navbar;
