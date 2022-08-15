@@ -1,0 +1,32 @@
+*{
+    background-color: black
+}
+
+.header-input{
+    width:500px
+}
+.header{
+    height: 70px;
+    background-color: black;
+    padding:8px;
+    display:flex;
+    align-item:center;
+    justify-content:space-around;
+    padding-top:20px
+}
+
+.header-h1{
+    color:#FF9933
+}
+
+.header-right{
+    color:#FF9933;
+    display:flex;
+    align-item:center;
+   
+    border-radius: 8px
+}
+
+.header_mid{
+   width:50%
+}

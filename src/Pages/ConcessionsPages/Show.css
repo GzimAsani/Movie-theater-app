@@ -1,0 +1,10 @@
+.nowShowing{
+    margin:20px;
+}
+
+.nowshowing_movies{
+    display:flex;
+    flex-wrap:wrap;
+    margin:20px
+
+}
