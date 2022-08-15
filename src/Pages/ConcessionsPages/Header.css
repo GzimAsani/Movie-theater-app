@@ -3,27 +3,31 @@
 }
 
 .header-input{
-    width:500px
+    padding: 5px;
+    width:500px;
+    height: 40px;
+    font-size: large;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    background-color: #1E1E1E;
 }
 .header{
     height: 70px;
     background-color: black;
     padding:8px;
     display:flex;
-    align-item:center;
+    align-items: center;
     justify-content:space-around;
     padding-top:20px
 }
-
 .header-h1{
     color:#FF9933
 }
-
 .header-right{
     color:#FF9933;
     display:flex;
-    align-item:center;
-   
+    align-items: center;
     border-radius: 8px
 }
 
