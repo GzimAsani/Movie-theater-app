@@ -14,9 +14,9 @@ const Navbar = ({ children }) => {
       icon: <FaTh />,
     },
     {
-      path: "/Conccesions",
-      name: "Concessions",
-      icon: <FaUserAlt />,
+      path: "/movies",
+      name: "Movies",
+      icon: <PopcornIcon />,
     },
   ];
   return (

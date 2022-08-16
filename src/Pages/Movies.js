@@ -4,7 +4,7 @@ import Header from "../Pages/ConcessionsPages/Header";
 import Show from "../Pages/ConcessionsPages/Show";
 import { Route, Link, Routes } from "react-router-dom";
 
-function Concessions() {
+function Movies() {
   return (
     <div>
       <Routes>
@@ -17,4 +17,4 @@ function Concessions() {
   );
 }
 
-export default Concessions;
+export default Movies;
