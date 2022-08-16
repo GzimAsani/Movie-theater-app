@@ -3,14 +3,11 @@ import "./Movie.css"
 import { useNavigate } from "react-router-dom"
 import BookScreen from './BookScreen';
 
-
-
 function Movie({key, name, image, data,month, overview, language}) {
 
    const current = new Date();
    const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
    let navigate = useNavigate();
-  console.log("data eshte" , date)  
    return (
     
     <div className="banner"
