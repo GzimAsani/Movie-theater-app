@@ -11,7 +11,7 @@ const Navbar = ({ children }) => {
     {
       path: "/",
       name: "Dashboard",
-      icon: <DashboardIcon />,
+      icon: <FaTh />,
     },
     {
       path: "/movies",
@@ -21,10 +21,10 @@ const Navbar = ({ children }) => {
   ];
   return (
     <div className="container">
-      <div style={{ width: isOpen ? "300px" : "60px" }} className="sidebar">
+      <div style={{ width: isOpen ? "200px" : "50px" }} className="sidebar">
         <div className="top_section">
           <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
-            EaglesCinema
+            Cinema
           </h1>
           <div style={{ marginLeft: isOpen ? "50px" : "0px" }} className="bars">
             <FaBars onClick={toggle} />
