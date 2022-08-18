@@ -1,7 +1,3 @@
-*{
-    background-color: black
-}
-
 .header-input{
     padding: 5px;
     width:500px;
@@ -24,11 +20,25 @@
 .header-h1{
     color:#FF9933
 }
+.header-right-SignUp{
+  padding: 10px;  
+}
+.header-right-SignUp h3{
+    color: #FF9933;
+}
 .header-right{
-    color:#FF9933;
-    display:flex;
-    align-items: center;
-    border-radius: 8px
+    display: flex;
+}
+.header-right-login{
+    padding: 10px;
+    background-color:#FF9933;
+    border-radius: 50px;
+    width: 70px;
+    text-align: center;
+}
+.header-right-login h3{
+    color:#000000;
+
 }
 
 .header_mid{

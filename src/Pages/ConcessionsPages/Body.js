@@ -5,7 +5,6 @@ import Show from './Show'
 function Body() {
   return (
     <div>
-      <Header/>
       <Show />
     </div>
   )
