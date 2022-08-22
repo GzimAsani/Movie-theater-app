@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./login.css";
 
 function Login() {
@@ -7,6 +8,7 @@ function Login() {
   const [formErrors, setFormErrors] = useState({});
   const [UserLogin, setUserLogin] = useState("");
   const [PasswordLogin, setPasswordLogin] = useState("");
+  let navigate = useNavigate();
 
   const onUserChange = (e) => {
     setUserLogin(e.target.value);
@@ -30,7 +32,11 @@ function Login() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        if (data.id) {
+          navigate("/", { replace: true });
+        } else {
+          console.log("wrong credentials");
+        }
       });
     e.preventDefault();
     setFormErrors(validate(formValues));
@@ -44,10 +50,8 @@ function Login() {
     }
     if (!values.password) {
       errors.password = "Password is required";
-    } else if (values.password.length < 4) {
+    } else if (values.password.length < 6) {
       errors.password = "Password must be more than 4 characters";
-    } else if (values.password.length > 16) {
-      errors.password = "Password cannot exceed more than 16 characters";
     }
     return errors;
   };
