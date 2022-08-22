@@ -10,11 +10,13 @@ import SignUp from "./Components/SignUp/SignUp";
 import Login from "./Components/Login/Login";
 import MovieDetail from "./Components/movieDetail/MovieDetail";
 import BookScreen from "./Pages/ConcessionsPages/BookScreen";
+import Header from "./Pages/ConcessionsPages/Header";
 
 const App = () => {
   return (
     <BrowserRouter>
       <div className="app-contanier">
+        <Header/>
         <Navbar>
           <Routes>
             <Route path="/" element={<HomePage />} />
