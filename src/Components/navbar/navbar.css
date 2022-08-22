@@ -5,6 +5,7 @@
     font-family: poppins;
     font-weight: 600;
     font-size: 25px;
+    cursor: pointer;
 }
 .dashboard-logo {
     width: 25px;
@@ -32,7 +33,7 @@ main {
 .sidebar {
   background-color: #121418;
   color: #fff;
-  height: 100vh;
+  height: 100hv;
   width: 200px;
   transition: all 0.5s;
 }
@@ -58,7 +59,7 @@ main {
 }
 
 .link:hover {
-  background: #B8C1EC;
+  background:#fff;
   color: #000;
   transition: all 0.5s;
   border-radius: 10px;
@@ -66,7 +67,7 @@ main {
 }
 
 .active {
-  background: #B8C1EC;
+  background: #fff;
   color: #000;
   border-radius: 10px;
 }

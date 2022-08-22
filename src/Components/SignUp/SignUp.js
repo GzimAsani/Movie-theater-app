@@ -20,8 +20,8 @@ function SignUp() {
   
     useEffect(() => {
       console.log(formErrors);
-      if (Object.keys(formErrors).length === 0 && isSubmit) {
-        console.log(formValues);
+      if (Object.keys(formErrors).length === 0 && isSubmit ) {
+        console.log( "u regjistru")
       }
     }, [formErrors]);
     const validate = (values) => {
