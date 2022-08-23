@@ -1,56 +1,56 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./login.css";
 
 function Login() {
-  const initialValues = { username: "", password: "" };
+  const initialValues = { username: "", password: "", data: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
-  const [UserLogin, setUserLogin] = useState("");
-  const [PasswordLogin, setPasswordLogin] = useState("");
+  const [wrongcredentials, setwrongcredentials] = useState(true);
+  const [isSubmit, setIsSubmit] = useState(false);
+  let navigate = useNavigate();
 
-  const onUserChange = (e) => {
-    setUserLogin(e.target.value);
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
-  const onPasswordChange = (e) => {
-    setPasswordLogin(e.target.value);
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
 
   const handleSubmit = (e) => {
-    fetch("http://localhost:3000/login", {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        username: UserLogin,
-        password: PasswordLogin,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      });
     e.preventDefault();
     setFormErrors(validate(formValues));
+    setIsSubmit(true);
   };
 
   const validate = (values) => {
     const errors = {};
-
     if (!values.username) {
       errors.username = "Username is required!";
     }
     if (!values.password) {
       errors.password = "Password is required";
-    } else if (values.password.length < 4) {
-      errors.password = "Password must be more than 4 characters";
-    } else if (values.password.length > 16) {
-      errors.password = "Password cannot exceed more than 16 characters";
     }
     return errors;
   };
+  useEffect(() => {
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      fetch("http://localhost:3000/login", {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: formValues.username,
+          password: formValues.password,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.id) {
+            navigate("/", { replace: true });
+          } else {
+            setwrongcredentials(false);
+          }
+        });
+    }
+  }, [formErrors]);
 
   return (
     <div className="login-container">
@@ -66,7 +66,8 @@ function Login() {
               type="text"
               name="username"
               placeholder="Username"
-              onChange={onUserChange}
+              value={formValues.username}
+              onChange={handleChange}
             />
           </div>
           <p>{formErrors.username}</p>
@@ -75,10 +76,15 @@ function Login() {
               type="password"
               name="password"
               placeholder="Password"
-              onChange={onPasswordChange}
+              value={formValues.password}
+              onChange={handleChange}
             />
           </div>
+          {!wrongcredentials && (
+            <p className="login-container">Wrong pasword or username</p>
+          )}
           <p>{formErrors.password}</p>
+
           <button className="login-button ">Submit</button>
         </div>
       </form>

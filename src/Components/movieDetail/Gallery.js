@@ -31,8 +31,8 @@ const Gallery = () => {
         />
         <div className="gallery-container" ref={sliderRef}>
           {movieImages.map((image, index) => (
-            <div className="gallery-item">
-              <img key={index} src={image} alt="movie poster" />
+            <div key={index} className="gallery-item">
+              <img loading="lazy" key={index} src={image} alt="movie poster" />
             </div>
           ))}
         </div>

@@ -5,7 +5,7 @@ import "./Show.css"
 function Show() {
     const API_KEY = "b93a64480573ce5248c28b200d79d029";
     const [loading, setLoading] = useState(false);
-    const [movies,setMovies] = useState([])
+    const [movies, setMovies] = useState([])
     const [searchTitle, setSearchTitle] = useState("");
 
       useEffect(()=>{   
@@ -13,12 +13,16 @@ function Show() {
             setLoading(true);
            await fetch(
               `https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}&language=en-US`
-            ).then((response) => response.json()).then((data) => setMovies(data.results));
+            ).then((response) => response.json()).then((data) => {
+              setMovies(data.results);            });
 
-            setLoading(false)
+
+            setLoading(false);
         }
+
          movieData();
          console.log("helloo", movieData)
+
     },[])
 
     return (
@@ -47,6 +51,7 @@ function Show() {
           .map((movie) =>
           <Movie
           key={movie.id}
+          id={movie.id}
           name={movie.original_title || movie.title || movie.name} 
           image={movie.poster_path}
           date={movie.release_date}
