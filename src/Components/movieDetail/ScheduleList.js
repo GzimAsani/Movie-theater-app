@@ -1,18 +1,23 @@
 import "./scheduleList.css";
 import { BiMovie } from "react-icons/bi";
+import {useState} from 'react';
 import { FaChevronDown } from "react-icons/fa";
 import { moviesSchedule } from "../../data/movieSchedules";
 const MovieSchedule = () => {
+  const [selectValue,setSelectValue]= useState("");
+
+const handleSelectValue = e => {
+  setSelectValue(e.target.value);
+}
+
   return (
     <section className="movie-schedule">
       <h1 className="movie-schedule-title">Time Schedule</h1>
       <div className="movie-schedule-container">
         <div className="movie-schedule-form">
           <div className="movie-schedule-form-select">
-            <select>
-              <option selected disabled>
-                Please select a cinema
-              </option>
+            <select  defaultValue="default" onChange={handleSelectValue}>
+              <option value="default">Please select a Cinema</option>
               <option value="eagle-prishtina">Eagle Cinema Prishtina</option>
               <option value="eagle-gjilan">Eagle Cinema Gjilan</option>
               <option value="eagle peje">Eagle Cinema Peje</option>

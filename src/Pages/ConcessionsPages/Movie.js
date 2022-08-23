@@ -3,7 +3,7 @@ import "./Movie.css"
 import { useNavigate } from "react-router-dom"
 import BookScreen from './BookScreen';
 
-function Movie({key, name, image, data,month, overview, language}) {
+function Movie({id, name, image, data,month, overview, language}) {
 
    const current = new Date();
    const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
@@ -18,7 +18,11 @@ function Movie({key, name, image, data,month, overview, language}) {
       }}
     >
       <h2 className='movie_title'>{name}</h2>
-      <button className='movie-button' onClick={() => navigate("/BookScreen")}>
+
+
+    
+      <button className='movie-button' onClick={() => navigate(`../../${id}/movieDetail`)}>
+
         BOOK Ticket
       </button>
 

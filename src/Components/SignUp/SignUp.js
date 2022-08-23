@@ -1,7 +1,9 @@
-import { useState , useEffect} from 'react';
-import './signUp.css';
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "./signUp.css";
 
 function SignUp() {
+
     const initialValues = { username: "", email: "", password: "" , confirmPassword : "" };
     const [formValues, setFormValues] = useState(initialValues);
     const [formErrors, setFormErrors] = useState({});
@@ -97,10 +99,44 @@ function SignUp() {
             </div>
             <p>{formErrors.confirmPassword}</p>
             <button className="signUp-button ">Submit</button>
+
           </div>
-        </form>
-      </div>
-    );
-  }
-  
+          <p>{formErrors.username}</p>
+          <div className="field">
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              value={formValues.email}
+              onChange={handleChange}
+            />
+          </div>
+          <p>{formErrors.email}</p>
+          <div className="field">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formValues.password}
+              onChange={handleChange}
+            />
+          </div>
+          <p>{formErrors.password}</p>
+          <div className="field">
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="confirmPassword"
+              value={formValues.confirmPassword}
+              onChange={handleChange}
+            />
+          </div>
+          <p>{formErrors.confirmPassword}</p>
+          <button className="signUp-button ">Submit</button>
+        </div>
+      </form>
+    </div>
+  );
+}
+
 export default SignUp;

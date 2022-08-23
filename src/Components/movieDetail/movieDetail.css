@@ -5,8 +5,7 @@
 }
 
 .movieDetail-contanier img{
-
-  margin-left: 40px;
+width:100%;
 
 }
 .movie{
@@ -45,4 +44,9 @@
     margin-right:10px;
     color: #2FED84;
     font-size:30px;
+}
+
+
+.movie-genre {
+    margin-right:5px;
 }
