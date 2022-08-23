@@ -22,12 +22,12 @@ const App = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/Dashboard" element={<Dashboard />} />
-            <Route path="/Movies" element={<Movies />} />
+            <Route path="/Movies/*" element={<Movies />} />
             <Route path="/BookScreen" element={<BookScreen />} />
-            <Route path="/MovieDetail" element={<MovieDetail />} />
+            <Route path={`/:id/MovieDetail`} element={<MovieDetail />} />
             <Route path="/SignUp" element={<SignUp />} />
             <Route path="/Login" element={<Login />} />
-          </Routes>
+        </Routes>
         </Navbar>
         <Footer />
       </div>
