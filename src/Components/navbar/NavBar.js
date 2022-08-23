@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaTh, FaBars, FaUserAlt } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { DashboardIcon, PopcornIcon } from "../../Icons";
-import "../navbar/navbar.css";
+import "./navbar.css";
 
 const Navbar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);

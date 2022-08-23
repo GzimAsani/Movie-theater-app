@@ -9,9 +9,6 @@
     background-color: #1E1E1E;
 }
 .header{
-    height: 70px;
-    background-color: black;
-    padding:8px;
     display:flex;
     align-items: center;
     justify-content:space-around;

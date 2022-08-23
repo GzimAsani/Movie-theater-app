@@ -9,7 +9,7 @@ function Movie({id, name, image, data,month, overview, language}) {
    const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
    let navigate = useNavigate();
    return (
-    
+    <div className='movie-contanier'>
     <div className="banner"
       style={{
         backgroundSize: "cover",
@@ -18,12 +18,16 @@ function Movie({id, name, image, data,month, overview, language}) {
       }}
     >
       <h2 className='movie_title'>{name}</h2>
+
+
     
       <button className='movie-button' onClick={() => navigate(`../../${id}/movieDetail`)}>
+
         BOOK Ticket
       </button>
 
   
+      </div>
     </div>
   )
 }

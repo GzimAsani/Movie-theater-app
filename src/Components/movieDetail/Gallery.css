@@ -14,26 +14,28 @@
 
   .gallery-arrow-left{
  
-width:30px;
-height:30px;
-    color:#FF8E3C;
-z-index:999;
-cursor: pointer; 
-margin-right:4px;
+     width:30px;
+     height:30px;
+     color:#FF8E3C;
+     z-index:999;
+     cursor: pointer; 
+     margin-right:4px;
   }
   .gallery-arrow-right {
     width:30px;
-    height:30px;    margin-left:15px;
+    height:30px;  
+    margin-left:15px;
     color:#FF8E3C;
     cursor: pointer; 
 
   }
   .gallery-container {
+    width: 1200px;
     display: flex; 
-overflow-x: hidden; 
-padding: 1rem; 
-gap:20px;
-align-items: center; 
+    overflow-x: hidden; 
+    padding: 1rem; 
+    gap:20px;
+    align-items: center; 
   }
   
   .gallery-item {
