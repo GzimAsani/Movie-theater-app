@@ -51,92 +51,60 @@ function SignUp() {
   
     return (
       <div className="signUp-container">
-        <form  className="signUp-form"onSubmit={handleSubmit}>
-         <div className='signUp-title'>
-           <h2>SignUp Form</h2>
-           <h3>EaglesCinema</h3>
-         </div>
-          <div className="ui divider"></div>
-          <div className="ui form">
-            <div className="field">
-              <input
-                type="text"
-                name="username"
-                placeholder="Username"
-                value={formValues.username}
-                onChange={handleChange}
-              />
-            </div>
-            <p>{formErrors.username}</p>
-            <div className="field">
-              <input
-                type="text"
-                name="email"
-                placeholder="Email"
-                value={formValues.email}
-                onChange={handleChange}
-              />
-            </div>
-            <p>{formErrors.email}</p>
-            <div className="field">
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={formValues.password}
-                onChange={handleChange}
-              />
-            </div>
-            <p>{formErrors.password}</p>
-            <div className="field">
-              <input
-                type="password"
-                name="confirmPassword"
-                placeholder="confirmPassword"
-                value={formValues.confirmPassword}
-                onChange={handleChange}
-              />
-            </div>
-            <p>{formErrors.confirmPassword}</p>
-            <button className="signUp-button ">Submit</button>
-
-          </div>
-          <p>{formErrors.username}</p>
-          <div className="field">
-            <input
-              type="text"
-              name="email"
-              placeholder="Email"
-              value={formValues.email}
-              onChange={handleChange}
-            />
-          </div>
-          <p>{formErrors.email}</p>
-          <div className="field">
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formValues.password}
-              onChange={handleChange}
-            />
-          </div>
-          <p>{formErrors.password}</p>
-          <div className="field">
-            <input
-              type="password"
-              name="confirmPassword"
-              placeholder="confirmPassword"
-              value={formValues.confirmPassword}
-              onChange={handleChange}
-            />
-          </div>
-          <p>{formErrors.confirmPassword}</p>
-          <button className="signUp-button ">Submit</button>
+      <form className="signUp-form"onSubmit={handleSubmit}>
+        <div className="signUp-title">
+          <h2>Login Form</h2>
+          <h3>EaglesCinema</h3>
+        </div>
+        <div className="ui divider"></div>
+        <div className="ui form">
+        <div className="field">
+                    <input
+                      type="text"
+                      name="username"
+                      placeholder="Username"
+                      value={formValues.username}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <p>{formErrors.username}</p>
+                  <div className="field">
+                    <input
+                      type="text"
+                      name="email"
+                      placeholder="Email"
+                      value={formValues.email}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <p>{formErrors.email}</p>
+                  <div className="field">
+                    <input
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      value={formValues.password}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <p>{formErrors.password}</p>
+                  <div className="field">
+                    <input
+                      type="password"
+                      name="confirmPassword"
+                      placeholder="confirmPassword"
+                      value={formValues.confirmPassword}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <p>{formErrors.confirmPassword}</p>
+                  <button className="signUp-button ">Submit</button>
         </div>
       </form>
-    </div>
+      </div>
   );
 }
 
 export default SignUp;
+
+
