@@ -5,7 +5,7 @@ import "./Show.css";
 function Show() {
   const [loading, setLoading] = useState(false);
   const [movies, setMovies] = useState([]);
-  const [searchTitle, setSearchTitle] = useState("");
+  const [searchtitle, setSearchTitle] = useState("");
 
   useEffect(() => {
     const movieData = async () => {
@@ -39,11 +39,11 @@ function Show() {
               if (!value.title) {
                 return false;
               }
-              if (!searchTitle || searchTitle === "") {
+              if (!searchtitle || searchtitle === "") {
                 return true;
               }
-              return value.Title.toLowerCase().includes(
-                searchTitle.toLowerCase()
+              return value.title.toLowerCase().includes(
+                searchtitle.toLowerCase()
               );
             })
             .map((movie) => (
