@@ -11,27 +11,30 @@ import Login from "./Components/Login/Login";
 import MovieDetail from "./Components/movieDetail/MovieDetail";
 import BookScreen from "./Pages/ConcessionsPages/BookScreen";
 import Header from "./Pages/ConcessionsPages/Header";
+import { CartProvider } from "./ThemeContext";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <div className="app-contanier">
+    <CartProvider>
+      <BrowserRouter>
+        <div className="app-contanier">
           <Navbar>
-        <Header/>
-      
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/Dashboard" element={<Dashboard />} />
-            <Route path="/Movies/*" element={<Movies />} />
-            <Route path="/BookScreen" element={<BookScreen />} />
-            <Route path={`/:id/MovieDetail`} element={<MovieDetail />} />
-            <Route path="/SignUp" element={<SignUp />} />
-            <Route path="/Login" element={<Login />} />
-        </Routes>
-        </Navbar>
-        <Footer />
-      </div>
-    </BrowserRouter>
+            <Header />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/Dashboard" element={<Dashboard />} />
+              <Route path="/Movies/*" element={<Movies />} />
+              <Route path="/BookScreen" element={<BookScreen />} />
+              <Route path={`/:id/MovieDetail`} element={<MovieDetail />} />
+              <Route path="/SignUp" element={<SignUp />} />
+              <Route path="/Login" element={<Login />} />
+            </Routes>
+          </Navbar>
+
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </CartProvider>
   );
 };
 
