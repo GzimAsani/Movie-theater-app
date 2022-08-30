@@ -17,10 +17,14 @@ const handleSelectValue = e => {
         <div className="movie-schedule-form">
           <div className="movie-schedule-form-select">
             <select  defaultValue="default" onChange={handleSelectValue}>
-              <option value="default">Please select a Cinema</option>
-              <option value="eagle-prishtina">Eagle Cinema Prishtina</option>
-              <option value="eagle-gjilan">Eagle Cinema Gjilan</option>
-              <option value="eagle peje">Eagle Cinema Peje</option>
+              <option value="default">Please select a day</option>
+              <option value="Monday">Monday</option>
+              <option value="Tuesday">Tuesday</option>
+              <option value="Wednesday">Wednesday</option>
+              <option value="Thursday">Thursday</option>
+              <option value="Friday">Friday</option>
+              <option value="Saturday">Saturday</option>
+              <option value="Sunday">Sunday</option>
             </select>
             <FaChevronDown className="select-icon" />
           </div>

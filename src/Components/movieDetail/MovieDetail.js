@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Gallery from "./Gallery";
-import { BiMovie } from "react-icons/bi";
-
 import "./movieDetail.css";
-import MovieSchedule from "./ScheduleList";
 
 function MovieDetail() {
   const [movie, setMovie] = useState({});
@@ -53,12 +49,7 @@ function MovieDetail() {
             <span className="movie-span">Genre</span> - {movie.genre}
           </p>
         </div>
-        <div className="line"></div>
-        <MovieSchedule />
-        <div className="movie-footer">
-          <BiMovie className="movie-footer-icon" />
-          <h1>Online Shopping Reservation</h1>
-        </div>
+        <div className="line"></div>       
       </div>
     </div>
   );
