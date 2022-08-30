@@ -1,148 +1,128 @@
-// import React, { useEffect, useState } from 'react'
-// import Movie from './MovieTwo';
-// import MovieTwo from './MovieTwo';
-// import "./MovieTwo.css"
+import React,{useState, useEffect} from 'react'
+import { View } from './View';
+import "./Homepages.css"
 
-// function Show() {
-//     const API_KEY = "b93a64480573ce5248c28b200d79d029";
-//     const [loading, setLoading] = useState(false);
-//     const [movies,setMovies] = useState([])
-//     const [searchTitle, setSearchTitle] = useState("");
+const getDatafromLS=()=>{
+  const data = localStorage.getItem('movies');
+  if(data){
+    return JSON.parse(data);
+  }
+  else{
+    return []
+  }
+}
 
+export const App = () => {
+  const [movies, setMovies]=useState(getDatafromLS());
 
-//       useEffect(()=>{   
-//         const movieData = async () => {
-//             setLoading(true);
-//            await fetch(
-//               `https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}&language=en-US`
-//             ).then((response) => response.json()).then((data) => setMovies(data.results));
-
-//             setLoading(false)
-//         }
-//          movieData();
-         
-//     },[])
-
-    
-//   const onDelete = async (id) => {
-//     await fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}&language=en-US`, {
-//       method: "DELETE",
-//     })
-//       .then((res) => {
-//         if (res.status !== 200) {
-//           return;
-//         } else {
-//           setMovies(
-//             movies.filter((user) => {
-//               return user.id !== id;
-//             })
-//           );
-//         }
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   };
-
-//     return (
-//     <div className='nowshowing'>
-//     <input
-//         className='show-searchBar'
-//         type="text"
-//         placeholder="Search Movie"
-//         onChange={(e) => setSearchTitle(e.target.value)}
-//       />
-//       <div className='nowshowing_movies'>
+  /*const [title, setTitle]=useState('');
+  const [author, setAuthor]=useState('');
   
-//       {loading ? (
-//         <h4>Loading ...</h4> 
-//       ) : (
-//         movies
-//         .filter((value) => {
-//             if (!value.title) {
-//               return false
-//             }
-//             if (!searchTitle || searchTitle === "") {
-//               return true;
-//             }
-//             return value.title.toLowerCase().includes(searchTitle.toLowerCase())
-//           })
-//           .map((movie) =>
-//           <MovieTwo
-//           key={movie.id}
-//           name={movie.original_title || movie.title || movie.name} 
-//           image={movie.poster_path}
-//           date={movie.release_date}
-//           language={movie.original_language}
-//           overview={movie.overview}
-//           img={movie.backdrop_path}
-//           onDelete={onDelete}
-//           />
-//       )
-//       )}
-//       </div> 
-//     </div>
-//    )
-// }
+  const [duration, setDuration]=useState('');*/
 
-// export default Show
-import React, { useEffect, useState } from 'react'
-import "./MovieTwo.css"
+  const [title, setTitle]=useState('');
+  const [genre, setGenre]=useState('');
+  const [description, setDescription]=useState('');
+  const [date, setDate]=useState('');
+  const [language, setLanguage] =useState('');
+  const [duration, setDuration] = useState('');
+  const [isbn, setIsbn]=useState('');
+  const handleAddMovieSubmit=(e)=>{
+    e.preventDefault();
 
-function Show() {
-const [selectedImages, setSelectedImages] = useState([]);
-console.log('lsdsd',selectedImages)
+    let movie={
+      title,
+      genre,
+      description,
+      date,
+      language,
+      duration,
+      isbn,
+    }
+    setMovies([...movies,movie]);
+    setTitle('');
+    setGenre('');
+    setDescription('');
+    setDate('');
+    setLanguage('');
+    setDuration('');
+    setIsbn('');
+  }
 
-const onSelectFile = (event) => {
-  const selectedFiles = event.target.files;
-  const selectedFilesArray = Array.from(selectedFiles);
+  const deleteMovie=(isbn)=>{
+    const filteredMovies=movies.filter((element,index)=>{
+      return element.isbn !== isbn
+    })
+    setMovies(filteredMovies);
+  }
 
-  const imagesArray = selectedFilesArray.map((file) => {
-    return URL.createObjectURL(file);
-  });
+  useEffect(()=>{
+    localStorage.setItem('movies',JSON.stringify(movies));
+  },[movies])
 
-  setSelectedImages((previousImages) => previousImages.concat(imagesArray));
+  return (
+    <div className='wrapper'>
+      <div className='main'>
 
-  event.target.value = "";
-};
+        <div className='form-container'>
+          <h1>Add new movie</h1>
+          <form autoComplete="off" className='form-group'
+          onSubmit={handleAddMovieSubmit}>
+           
+            <input type="text"  placeholder='Title' className='form-control' required
+            onChange={(e)=>setTitle(e.target.value)} value={title}></input>
+            <br></br>
+            
+            <input type="text" placeholder='Genre' className='form-control' required
+            onChange={(e)=>setGenre(e.target.value)} value={genre}></input>
+            <br></br>
+            <input type="text" placeholder='Description' className='form-control' required
+            onChange={(e)=>setDescription(e.target.value)} value={description}></input>
+            <br></br>
+            <input type="text" placeholder='Language' className='form-control' required
+            onChange={(e)=>setLanguage(e.target.value)} value={language}></input>
+            <br></br>
+            <input type="text" placeholder='duration' className='form-control' required
+            onChange={(e)=>setDuration(e.target.value)} value={duration}></input>
+            <br></br>
 
-function deleteHandler(image) {
-  setSelectedImages(selectedImages.filter((e) => e !== image));
-  URL.revokeObjectURL(image);
-} 
+            <input type="text" placeholder='Time' className='form-control' required
+            onChange={(e)=>setIsbn(e.target.value)} value={isbn}></input>
+            <br></br>
+            
+            <input type="date" placeholder='Date'  className='form-control-date' required
+            onChange={(e)=>setIsbn(e.target.value)} value="2018-07-22"
+            min="2018-01-01" max="2018-12-31"></input>
+            <br></br>
+            <button type="submit" className='button'>
+              ADD
+            </button>
+          </form>
+        </div>
 
-return (
-  <section className='dashboard-section'>
-    <label>
-      + Add Movies
-      <br />
-      <input
-        type="file"
-        name='file'
-        onChange={onSelectFile}
-        accept="image/png , image/jpeg, image/webp"
-      
-      />
-      
-    </label>
-    <br />
-
-    <div className="images">
-      {selectedImages &&
-        selectedImages.map((image) => {
-          return (
-            <div key={image} className="image">
-              <img src={image}  />
-              <h1>Movie Name</h1>
-              <button className='button-section' onClick={() => deleteHandler(image)}>
-                 Delete Movie
-              </button>
+        <div className='view-container'>
+          {movies.length>0&&<>
+            <div className='table-responsive'>
+              <table className='table'>
+                <thead>
+                  <tr>
+                    <th>MOVIE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <View    movies={movies} deleteMovie={deleteMovie}/>
+                </tbody>
+              </table>
             </div>
-          );
-        })}
-    </div>
-  </section>
-);
-};
-export default Show
+            <button className='button-one'
+            onClick={()=>setMovies([])}>Remove All</button>
+          </>}
+          {movies.length < 1 && <div>No books are added yet</div>}
+        </div>
 
+      </div>
+    </div>
+  )
+}
+
+export default App
