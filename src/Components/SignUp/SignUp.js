@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./signUp.css";
+import CartContext from "../../ThemeContext";
+import { useContext } from "react";
 
-function SignUp() {
+function SignUp({ onRouteChange }) {
   const initialValues = {
     username: "",
     email: "",
@@ -12,6 +14,7 @@ function SignUp() {
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
+  const { checkifloged } = useContext(CartContext);
   let navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -23,6 +26,10 @@ function SignUp() {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
+  };
+
+  const onRoute = () => {
+    onRouteChange("login");
   };
 
   useEffect(() => {
@@ -39,7 +46,9 @@ function SignUp() {
         .then((response) => response.json())
         .then((data) => {
           if (data.id) {
-            navigate("/", { replace: true });
+            navigate("/Login", { replace: true });
+            checkifloged(true);
+            onRoute();
           } else {
             console.log("unable to register");
           }

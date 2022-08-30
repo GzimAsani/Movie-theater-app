@@ -4,7 +4,7 @@ import "./login.css";
 import CartContext from "../../ThemeContext";
 import { useContext } from "react";
 
-function Login() {
+function Login({ onRouteChange, onSaveUserName }) {
   const initialValues = { username: "", password: "", data: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
@@ -47,9 +47,11 @@ function Login() {
       })
         .then((response) => response.json())
         .then((data) => {
-          if (data.id) {
+          if (data.id && data.username) {
             navigate("/movies", { replace: true });
-            checkifloged();
+            checkifloged(true);
+            onRouteChange("home");
+            onSaveUserName(data.username);
           } else {
             setwrongcredentials(false);
           }
@@ -86,7 +88,7 @@ function Login() {
             />
           </div>
           {!wrongcredentials && (
-            <p className="login-container">Wrong pasword or username</p>
+            <p>Wrong pasword or username</p>
           )}
           <p>{formErrors.password}</p>
 

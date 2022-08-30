@@ -1,43 +1,55 @@
-.header-input{
-    padding: 5px;
-    width:500px;
-    height: 40px;
-    font-size: large;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    background-color: #1E1E1E;
+.header-input {
+  padding: 5px;
+  width: 500px;
+  height: 40px;
+  font-size: large;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  background-color: #1e1e1e;
 }
-.header{
-    display:flex;
-    align-items: center;
-    justify-content:space-around;
-    padding-top:20px
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 20px;
 }
-.header-h1{
-    color:#FF9933
+.header-h1 {
+  color: #ff9933;
 }
-.header-right-SignUp{
-  padding: 10px;  
+.header-right-SignUp {
+  display: flex;
+  align-items: center;
+  padding: 10px;
 }
-.header-right-SignUp h3{
-    color: #FF9933;
+.header-right-SignUp h3 {
+  margin-left: 20px;
+  color: #ff9933;
 }
-.header-right{
-    display: flex;
+.header-right {
+  display: flex;
 }
-.header-right-login{
-    padding: 10px;
-    background-color:#FF9933;
-    border-radius: 50px;
-    width: 70px;
-    text-align: center;
+.header-right-login {
+  padding: 10px;
+  background-color: #ff9933;
+  border-radius: 50px;
+  width: 70px;
+  text-align: center;
 }
-.header-right-login h3{
-    color:#000000;
+.header-right-login h3 {
+  color: #000000;
+}
 
+.header_mid {
+  width: 50%;
 }
 
-.header_mid{
-   width:50%
+.header p {
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
+}
+.header p .emri {
+  color: orange;
+  border-bottom: 1px solid orange;
 }

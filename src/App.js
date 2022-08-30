@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import HomePage from "./Pages/HomePage";
 import "./app.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -14,24 +14,64 @@ import Header from "./Pages/ConcessionsPages/Header";
 import { CartProvider } from "./ThemeContext";
 
 const App = () => {
+  const [route, setRoute] = useState("home");
+  const [isSignedIn, setisSignedIn] = useState(false);
+  const [name, setname] = useState("");
+  const saveUsername = (username) => {
+    const name = username;
+    setname(name);
+  };
+  const onRouteChange = (route) => {
+    if (route === "signout") {
+      setisSignedIn(false);
+    } else if (route === "home") {
+      setisSignedIn(true);
+    }
+    setRoute(route);
+  };
+
   return (
     <CartProvider>
       <BrowserRouter>
         <div className="app-contanier">
-          <Navbar>
-            <Header />
+          <Header
+            isSignedIn={isSignedIn}
+            onRouteChange={onRouteChange}
+            username={name}
+          />
+          {route === "home" || route === "signout" ? (
+            <div>
+              <Navbar>
+                <Routes>
+                  <Route path="/" element={<HomePage/>}/>
+                  <Route path="/Dashboard" element={<Dashboard />} />
+                  <Route path="/Movies/*" element={<Movies />} />
+                  <Route path="/BookScreen" element={<BookScreen />} />
+                  <Route path={`/:id/MovieDetail`} element={<MovieDetail />} />
+                </Routes>
+              </Navbar>
+              <Footer />
+            </div>
+          ) : route === "login" ? (
             <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/Dashboard" element={<Dashboard />} />
-              <Route path="/Movies/*" element={<Movies />} />
-              <Route path="/BookScreen" element={<BookScreen />} />
-              <Route path={`/:id/MovieDetail`} element={<MovieDetail />} />
-              <Route path="/SignUp" element={<SignUp />} />
-              <Route path="/Login" element={<Login />} />
+              <Route
+                path="/Login"
+                element={
+                  <Login
+                    onRouteChange={onRouteChange}
+                    onSaveUserName={saveUsername}
+                  />
+                }
+              />
             </Routes>
-          </Navbar>
-
-          <Footer />
+          ) : (
+            <Routes>
+              <Route
+                path="/SignUp"
+                element={<SignUp onRouteChange={onRouteChange} />}
+              />
+            </Routes>
+          )}
         </div>
       </BrowserRouter>
     </CartProvider>

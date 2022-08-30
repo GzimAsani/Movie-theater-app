@@ -5,8 +5,8 @@ const CartContext = createContext();
 export function CartProvider({ children }) {
   const [isloged, setisloged] = useState(false);
 
-  const checkifloged = () => {
-    setisloged(true);
+  const checkifloged = (value) => {
+    setisloged(value);
   };
   return (
     <CartContext.Provider value={{ isloged, checkifloged }}>

@@ -91,7 +91,6 @@ import "./MovieTwo.css"
 
 function Show() {
 const [selectedImages, setSelectedImages] = useState([]);
-console.log('lsdsd',selectedImages)
 
 const onSelectFile = (event) => {
   const selectedFiles = event.target.files;
