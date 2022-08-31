@@ -57,6 +57,7 @@ function Show() {
                 overview={movie.description}
                 img={movie.movieimg}
               />
+            
             ))
         )}
       </div>

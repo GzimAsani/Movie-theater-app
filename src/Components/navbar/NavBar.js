@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { FaTh, FaBars, FaUserAlt } from "react-icons/fa";
+import { FaTh, FaBars,FaClock } from "react-icons/fa";
+import {GiPopcorn  } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
-import { DashboardIcon, PopcornIcon } from "../../Icons";
 import "./navbar.css";
 
 const Navbar = ({ children }) => {
@@ -16,7 +16,12 @@ const Navbar = ({ children }) => {
     {
       path: "/movies",
       name: "Movies",
-      icon: <PopcornIcon />,
+      icon: <GiPopcorn />,
+    },
+    {
+      path: "/Booking",
+      name: "Booking",
+      icon:<FaClock />
     },
   ];
   return (

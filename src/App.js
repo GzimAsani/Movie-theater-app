@@ -12,6 +12,7 @@ import MovieDetail from "./Components/movieDetail/MovieDetail";
 import BookScreen from "./Pages/ConcessionsPages/BookScreen";
 import Header from "./Pages/ConcessionsPages/Header";
 import { CartProvider } from "./ThemeContext";
+import Booking from "./Pages/Booking/Booking";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/Dashboard" element={<Dashboard />} />
+              <Route path="/Booking" element={< Booking />} />
               <Route path="/Movies/*" element={<Movies />} />
               <Route path="/BookScreen" element={<BookScreen />} />
               <Route path={`/:id/MovieDetail`} element={<MovieDetail />} />

@@ -26,9 +26,9 @@ function Footer() {
           <div className="col">
             <h4>FOLLOW  US</h4>
             <ul className="list-icon">
-              <li><FaFacebookF/></li>
-              <li><FaInstagram/></li>
-              <li><FaTwitter/></li> 
+              <li><a href="https://www.facebook.com/"><FaFacebookF/></a></li>
+              <li><a href="https://www.instagram.com/"><FaInstagram/></a></li>
+              <li><a href="https://www.twitter.com/"><FaTwitter/></a></li> 
             </ul>
           </div>
         </div>
