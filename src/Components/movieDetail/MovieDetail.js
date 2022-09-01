@@ -23,7 +23,7 @@ function MovieDetail() {
         setMovie(movieData);
         setLoading(false);
       } catch (err) {
-        console.log(err);
+        //
       }
     };
     fetchSingleMovie();
