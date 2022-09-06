@@ -1,0 +1,28 @@
+.card-title{
+    color:black
+}
+
+.card-price{
+    color:black
+}
+
+.card-text{
+    color:black;
+    margin-bottom: 20px;
+}
+
+.image-card{
+    width:200px;
+
+
+}
+
+.card {
+    width:60%
+}
+.button{
+    background-color: green;
+    padding: 10px 20px;
+    margin-top:10px;
+    color: black
+}
