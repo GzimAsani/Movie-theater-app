@@ -15,7 +15,7 @@ function Header() {
     <div className="header">
       <Link to="/Movies">
         <h3>
-          <h3 className="header-h1">Movie</h3>
+          <h3 className="header-h1">Movie Cinema</h3>
         </h3>
       </Link>
       {user ? (

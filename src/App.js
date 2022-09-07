@@ -16,7 +16,7 @@ import { AuthContext } from "./context/AuthContext";
 import Profilpage from "./Pages/Profil/Profilpage";
 
 const App = () => {
-  const { user } = useContext(AuthContext);
+  const { user} = useContext(AuthContext);
   return (
     <BrowserRouter>
       <div className="app-contanier">

@@ -17,6 +17,8 @@
 }
 .header-h1 {
   color: #ff9933;
+  font-size: 2rem;
+  margin-right: 200px;
 }
 .header-right-SignUp {
   padding: 10px;
@@ -84,9 +86,17 @@
 
 .name {
   border: 1px solid orange;
-  border-radius: 30%;
+  border-radius: 50px;
+  width: 80px;
   padding: 10px;
   margin: 0 20px;
   color: orange;
   cursor: pointer;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.name:hover{
+  color: white;
+  background: orange;
 }
