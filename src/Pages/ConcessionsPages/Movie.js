@@ -3,13 +3,14 @@ import "./Movie.css";
 import Modal from "./Modal";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import CartContext from "../../ThemeContext";
+import { AuthContext } from "../../context/AuthContext";
 
 function Movie({ id, name, image, data, month, overview, language }) {
+  const { user } = useContext(AuthContext);
   const [showModal, setShowModal] = useState();
-  const { isloged } = useContext(CartContext);
+
   function checkif() {
-    if (isloged) {
+    if (user) {
       navigate(`../../${id}/movieDetail`);
     } else {
       showModalHandler();
@@ -37,7 +38,7 @@ function Movie({ id, name, image, data, month, overview, language }) {
       >
         <h2 className="movie_title">{name}</h2>
         <button className="movie-button" onClick={checkif}>
-          BOOK Ticket
+          BOOK TICKET
         </button>
       </div>
       {showModal && <Modal text="Are you sure?" onClose={closeModalHandler} />}

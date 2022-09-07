@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
-import CartContext from "../../ThemeContext";
 import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 function Login() {
   const initialValues = { username: "", password: "", data: "" };
@@ -11,7 +11,7 @@ function Login() {
   const [wrongcredentials, setwrongcredentials] = useState(true);
   const [isSubmit, setIsSubmit] = useState(false);
 
-  const { checkifloged } = useContext(CartContext);
+  const { dispatch } = useContext(AuthContext);
 
   let navigate = useNavigate();
 
@@ -23,6 +23,7 @@ function Login() {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
+    dispatch({ type: "LOGIN_START" });
   };
 
   const validate = (values) => {
@@ -37,7 +38,7 @@ function Login() {
   };
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      fetch("https://hidden-lowlands-43310.herokuapp.com/login", {
+      fetch("https://hidden-lowlands-43310.herokuapp.com/api/auth/login", {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -48,8 +49,8 @@ function Login() {
         .then((response) => response.json())
         .then((data) => {
           if (data.id) {
-            navigate("/movies", { replace: true });
-            checkifloged();
+            dispatch({ type: "LOGIN_SUCCESS", payload: data });
+            navigate("/movies");
           } else {
             setwrongcredentials(false);
           }

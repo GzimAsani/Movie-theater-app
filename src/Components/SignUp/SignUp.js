@@ -27,7 +27,7 @@ function SignUp() {
 
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      fetch("https://hidden-lowlands-43310.herokuapp.com/register", {
+      fetch("https://hidden-lowlands-43310.herokuapp.com/api/auth/register", {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -39,7 +39,7 @@ function SignUp() {
         .then((response) => response.json())
         .then((data) => {
           if (data.id) {
-            navigate("/", { replace: true });
+            navigate("/login");
           } else {
             console.log("unable to register");
           }

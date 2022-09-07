@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import HomePage from "./Pages/HomePage";
 import "./app.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -11,32 +11,35 @@ import Login from "./Components/Login/Login";
 import MovieDetail from "./Components/movieDetail/MovieDetail";
 import BookScreen from "./Pages/ConcessionsPages/BookScreen";
 import Header from "./Pages/ConcessionsPages/Header";
-import { CartProvider } from "./ThemeContext";
 import Booking from "./Pages/Booking/Booking";
+import { AuthContext } from "./context/AuthContext";
+import Profilpage from "./Pages/Profil/Profilpage";
 
 const App = () => {
+  const { user } = useContext(AuthContext);
   return (
-    <CartProvider>
-      <BrowserRouter>
-        <div className="app-contanier">
-          <Navbar>
-            <Header />
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/Dashboard" element={<Dashboard />} />
-              <Route path="/Booking" element={< Booking />} />
-              <Route path="/Movies/*" element={<Movies />} />
-              <Route path="/BookScreen" element={<BookScreen />} />
-              <Route path={`/:id/MovieDetail`} element={<MovieDetail />} />
-              <Route path="/SignUp" element={<SignUp />} />
-              <Route path="/Login" element={<Login />} />
-            </Routes>
-          </Navbar>
-
-          <Footer />
-        </div>
-      </BrowserRouter>
-    </CartProvider>
+    <BrowserRouter>
+      <div className="app-contanier">
+        <Navbar>
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/Dashboard" element={<Dashboard />} />
+            <Route path="/Booking" element={<Booking />} />
+            <Route path="/Movies/*" element={<Movies />} />
+            <Route path="/BookScreen" element={<BookScreen />} />
+            <Route
+              path={`/:id/MovieDetail`}
+              element={user ? <MovieDetail /> : <Login />}
+            />
+            <Route path="/profile" element={user ? <Profilpage/> : <Login />}/>
+            <Route path="/SignUp" element={user ? <Movies /> : <SignUp />} />
+            <Route path="/Login" element={user ? <Movies /> : <Login />} />
+          </Routes>
+        </Navbar>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 };
 

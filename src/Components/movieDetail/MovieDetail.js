@@ -12,7 +12,7 @@ function MovieDetail() {
       setLoading(true);
       try {
         const res = await fetch(
-          `https://hidden-lowlands-43310.herokuapp.com/${id}/movies`
+          `https://hidden-lowlands-43310.herokuapp.com/api/movies/${id}`
         );
 
         const movieData = await res.json();
@@ -29,7 +29,7 @@ function MovieDetail() {
     <h1>Loading</h1>
   ) : (
     <div className="movieDetail-contanier">
-      <img src={movie.posterimg} />
+      <img alt="posteri" src={movie.posterimg} />
       <div className="movie">
         <h1>{movie.title}</h1>
         <h4>{movie.description}</h4>

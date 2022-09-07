@@ -1,22 +1,15 @@
 import "./scheduleList.css";
 import { BiMovie } from "react-icons/bi";
-import {useState} from 'react';
 import { FaChevronDown } from "react-icons/fa";
 import { moviesSchedule } from "../../data/movieSchedules";
 const MovieSchedule = () => {
-  const [selectValue,setSelectValue]= useState("");
-
-const handleSelectValue = e => {
-  setSelectValue(e.target.value);
-}
-
   return (
     <section className="movie-schedule">
       <h1 className="movie-schedule-title">Time Schedule</h1>
       <div className="movie-schedule-container">
         <div className="movie-schedule-form">
           <div className="movie-schedule-form-select">
-            <select  defaultValue="default" onChange={handleSelectValue}>
+            <select  defaultValue="default">
               <option value="default">Please select a day</option>
               <option value="Monday">Monday</option>
               <option value="Tuesday">Tuesday</option>
