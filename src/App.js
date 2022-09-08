@@ -13,6 +13,7 @@ import BookScreen from "./Pages/ConcessionsPages/BookScreen";
 import Header from "./Pages/ConcessionsPages/Header";
 import { CartProvider } from "./ThemeContext";
 import Booking from "./Pages/Booking/Booking";
+import Comming from "./Pages/Comming/Comming";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
               <Route path="/" element={<HomePage />} />
               <Route path="/Dashboard" element={<Dashboard />} />
               <Route path="/Booking" element={< Booking />} />
+              <Route path="/Comming" element={< Comming />} />
               <Route path="/Movies/*" element={<Movies />} />
               <Route path="/BookScreen" element={<BookScreen />} />
               <Route path={`/:id/MovieDetail`} element={<MovieDetail />} />
