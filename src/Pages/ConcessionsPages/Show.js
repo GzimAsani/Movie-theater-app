@@ -18,7 +18,7 @@ function Show() {
   const [loading, setLoading] = useState(false);
   const [movies, setMovies] = useState([]);
   const [searchtitle, setSearchTitle] = useState("");
-  const [filteredMovies, setFilteredMovie] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([]);
   const [genre, setGenre] = useState("");
   const [date, setDate] = useState("");
   const handleGenre = (e) => {
@@ -28,7 +28,11 @@ function Show() {
     );
     if (filterMoviesByGenre.length > 0) {
       setMovies(filterMoviesByGenre);
-    } else {
+    }
+    else if(e.target.value==="all") {
+      setMovies(filteredMovies);
+    }
+    else {
       setMovies(filteredMovies);
     }
   };
@@ -42,7 +46,11 @@ function Show() {
     );
     if (filterMoviesByDate.length > 0) {
       setMovies(filterMoviesByDate);
-    } else {
+    } 
+    else if (e.target.value === "all") {
+      setMovies(filteredMovies);
+    }
+    else {
       setMovies(filteredMovies);
     }
   };
@@ -54,7 +62,7 @@ function Show() {
         .then((response) => response.json())
         .then((data) => {
           setMovies(data);
-          setFilteredMovie(data);
+          setFilteredMovies(data);
         });
 
       setLoading(false);
@@ -73,6 +81,7 @@ function Show() {
               {" "}
               Select Date
             </option>
+            <option value="all">All</option>
             <option value="2022-05-24">May 24, 2022</option>
             <option value="2022-08-03">August 3, 2022</option>
             <option value="2022-08-19">August 19, 2022</option>
@@ -95,6 +104,7 @@ function Show() {
             <option value="" selected disabled>
               Select a Genre
             </option>
+            <option value="all">All</option>
             {genres.map((genre, i) => (
               <option key={i} value={genre}>
                 {genre}
