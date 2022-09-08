@@ -1,16 +1,13 @@
 
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import {  FaTh, FaBars,FaClock, FaCheck } from "react-icons/fa";
-
 import {GiPopcorn  } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
-import {AuthContext} from "../../context/AuthContext";
 import "./navbar.css";
 
 const Navbar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  const { user } = useContext(AuthContext);
   const menuItem = [
     {
       path: "/dashboard",
