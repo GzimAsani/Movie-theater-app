@@ -1,5 +1,7 @@
+
 import React, { useContext, useState } from "react";
-import { FaTh, FaBars,FaClock } from "react-icons/fa";
+import {  FaTh, FaBars,FaClock, FaCheck } from "react-icons/fa";
+
 import {GiPopcorn  } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext";
@@ -23,6 +25,11 @@ const Navbar = ({ children }) => {
     {
       path: "/Booking",
       name: "Booking",
+      icon:<FaCheck />
+    },
+    {
+      path: "/Comming",
+      name: "Comming",
       icon:<FaClock />
     },
   ];
