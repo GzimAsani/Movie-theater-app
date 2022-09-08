@@ -1,128 +1,125 @@
 import React,{useState, useEffect} from 'react'
 import { View } from './View';
 import "./Homepages.css"
+import { Home } from '@mui/icons-material';
 
-const getDatafromLS=()=>{
-  const data = localStorage.getItem('movies');
-  if(data){
-    return JSON.parse(data);
-  }
-  else{
-    return []
-  }
-}
 
-export const App = () => {
-  const [movies, setMovies]=useState(getDatafromLS());
+function Homepages() {
+  const initialValues = {
+    description: "",
+    duration: "",
+    language: "",
+    date: "",
+    country: "",
+    genre: "",
+    movieImage: "",
+    image: "",
+    title: "",
+  };
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+ 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
 
-  /*const [title, setTitle]=useState('');
-  const [author, setAuthor]=useState('');
-  
-  const [duration, setDuration]=useState('');*/
-
-  const [title, setTitle]=useState('');
-  const [genre, setGenre]=useState('');
-  const [description, setDescription]=useState('');
-  const [date, setDate]=useState('');
-  const [language, setLanguage] =useState('');
-  const [duration, setDuration] = useState('');
-  const [isbn, setIsbn]=useState('');
-  const handleAddMovieSubmit=(e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault();
+    setFormErrors(validate(formValues));
+    setIsSubmit(true);
+  };
 
-    let movie={
-      title,
-      genre,
-      description,
-      date,
-      language,
-      duration,
-      isbn,
+
+  useEffect(() => {
+    if (isSubmit) {
+      fetch("https://hidden-lowlands-43310.herokuapp.com/movies", {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          description: formValues.description,
+          duration: formValues.duration,
+          movielanguage: formValues.language,
+          releasedate: "2022-12-12",
+          country: formValues.country,
+          genre: "comedy",
+          movieimg: "https://m.media-amazon.com/images/M/MV5BOTYyZjVhYWMtYTU1Zi00M2UzLWIwNGMtOGFkYmRlODE0NGQ5XkEyXkFqcGdeQXVyMTA2ODkwNzM5._V1_.jpg",
+          posterimg: "https://static1.moviewebimages.com/wordpress/wp-content/uploads/2022/08/Kevin-Hart-and-Mark-Wahlberg-run-with-a-turtle-in-the-Netflix-movie-Me-Time.jpg",
+          title: "metime2",
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data)
+        })
     }
-    setMovies([...movies,movie]);
-    setTitle('');
-    setGenre('');
-    setDescription('');
-    setDate('');
-    setLanguage('');
-    setDuration('');
-    setIsbn('');
-  }
-
-  const deleteMovie=(isbn)=>{
-    const filteredMovies=movies.filter((element,index)=>{
-      return element.isbn !== isbn
-    })
-    setMovies(filteredMovies);
-  }
-
-  useEffect(()=>{
-    localStorage.setItem('movies',JSON.stringify(movies));
-  },[movies])
+      
+        
+    
+  }, [formErrors]);
+  const validate = (values) => {
+    const errors = {};
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if (!values.username) {
+      errors.username = "Username is required!";
+    }
+    return errors;
+  };
 
   return (
-    <div className='wrapper'>
-      <div className='main'>
-
-        <div className='form-container'>
-          <h1>Add new movie</h1>
-          <form autoComplete="off" className='form-group'
-          onSubmit={handleAddMovieSubmit}>
-           
-            <input type="text"  placeholder='Title' className='form-control' required
-            onChange={(e)=>setTitle(e.target.value)} value={title}></input>
-            <br></br>
-            
-            <input type="text" placeholder='Genre' className='form-control' required
-            onChange={(e)=>setGenre(e.target.value)} value={genre}></input>
-            <br></br>
-            <input type="text" placeholder='Description' className='form-control' required
-            onChange={(e)=>setDescription(e.target.value)} value={description}></input>
-            <br></br>
-            <input type="text" placeholder='Language' className='form-control' required
-            onChange={(e)=>setLanguage(e.target.value)} value={language}></input>
-            <br></br>
-            <input type="text" placeholder='duration' className='form-control' required
-            onChange={(e)=>setDuration(e.target.value)} value={duration}></input>
-            <br></br>
-
-            <input type="text" placeholder='Time' className='form-control' required
-            onChange={(e)=>setIsbn(e.target.value)} value={isbn}></input>
-            <br></br>
-            
-            <input type="date" placeholder='Date'  className='form-control-date' required
-            onChange={(e)=>setIsbn(e.target.value)} value="2018-07-22"
-            min="2018-01-01" max="2018-12-31"></input>
-            <br></br>
-            <button type="submit" className='button'>
-              ADD
-            </button>
-          </form>
+    <div className="signUp-container">
+      <form className="signUp-form" onSubmit={handleSubmit}>
+        <div className="signUp-title">
+          <h2>Login Form</h2>
+          <h3>EaglesCinema</h3>
         </div>
-
-        <div className='view-container'>
-          {movies.length>0&&<>
-            <div className='table-responsive'>
-              <table className='table'>
-                <thead>
-                  <tr>
-                    <th>MOVIE</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <View    movies={movies} deleteMovie={deleteMovie}/>
-                </tbody>
-              </table>
-            </div>
-            <button className='button-one'
-            onClick={()=>setMovies([])}>Remove All</button>
-          </>}
-          {movies.length < 1 && <div>No books are added yet</div>}
+        <div className="ui divider"></div>
+        <div className="ui form">
+          <div className="field">
+            <input
+              type="text"
+              name="description"
+              placeholder="description"
+              value={formValues.description}
+              onChange={handleChange}
+            />
+          </div>
+          
+          <div className="field">
+            <input
+              type="text"
+              name="duration"
+              placeholder="duration"
+              value={formValues.duration}
+              onChange={handleChange}
+            />
+          </div>
+          
+          <div className="field">
+            <input
+              type="language"
+              name="language"
+              placeholder="language"
+              value={formValues.language}
+              onChange={handleChange}
+            />
+          </div>
+         
+          <div className="field">
+            <input
+              type="text"
+              name="country"
+              placeholder="country"
+              value={formValues.country}
+              onChange={handleChange}
+            />
+          </div>
+          <button className="signUp-button ">Submit</button>
         </div>
-
-      </div>
+      </form>
     </div>
   )
 }
 
-export default App
+export default Homepages;
