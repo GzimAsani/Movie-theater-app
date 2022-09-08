@@ -35,8 +35,9 @@ const CommingMovie = () => {
                     <p className="card-price">Price: 211/-</p>
                     <p className="card-text">
                       Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
+                      make up the 
                     </p>
+                    <p>2023...</p>
                     <a href="#" className="button ">
                       Details
                     </a>
