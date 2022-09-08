@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
- 
 }
 .container {
   display: flex;
@@ -38,18 +37,15 @@ main {
 
 .link {
   display: flex;
-  color: #fff;
   padding: 10px 15px;
   gap: 15px;
   transition: all 0.5s;
 }
 
 .link:hover {
-  
-
   transition: all 0.5s;
 }
-.app-contanier{
+.app-contanier {
   background-color: black;
 }
 
@@ -57,4 +53,3 @@ main {
 .link_text {
   font-size: 20px;
 }
-

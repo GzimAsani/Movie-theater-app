@@ -1,6 +1,6 @@
 import React from "react";
 import Body from "../Pages/ConcessionsPages/Body";
-import { Route, Link, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 function Movies({checkLogin}) {
 
