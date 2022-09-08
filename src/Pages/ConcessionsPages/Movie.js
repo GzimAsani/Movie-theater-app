@@ -36,10 +36,12 @@ function Movie({ id, name, image, data, month, overview, language }) {
           backgroundPosition: "center center",
         }}
       >
+        <div className="middle">
         <h2 className="movie_title">{name}</h2>
         <button className="movie-button" onClick={checkif}>
-          BOOK TICKET
+         Show Movie
         </button>
+        </div>
       </div>
       {showModal && <Modal text="Are you sure?" onClose={closeModalHandler} />}
     </div>
