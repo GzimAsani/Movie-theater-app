@@ -81,6 +81,14 @@ function Show() {
           </select>
           <FaChevronDown className="select-icon" />
         </div>
+        <div className="nowshowing-search">
+        <input
+          className="nowshowing-searchBar"
+          type="text"
+          placeholder="Search Movie"
+          onChange={(e) => setSearchTitle(e.target.value)}
+        />
+      </div>
         <div className="nowshowing-form-select">
           <MdOutlineMovieFilter className="nowshowing-customIcon" />
           <select onChange={handleGenre} value={genre}>
@@ -96,14 +104,7 @@ function Show() {
           <FaChevronDown className="select-icon" />
         </div>
       </div>
-      <div className="nowshowing-search">
-        <input
-          className="nowshowing-searchBar"
-          type="text"
-          placeholder="Search Movie"
-          onChange={(e) => setSearchTitle(e.target.value)}
-        />
-      </div>
+      
       <div className="nowshowing_movies">
         {loading ? (
           <h4>Loading ...</h4>

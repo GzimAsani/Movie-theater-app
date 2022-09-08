@@ -12,7 +12,6 @@ import MovieDetail from "./Components/movieDetail/MovieDetail";
 import BookScreen from "./Pages/ConcessionsPages/BookScreen";
 import Header from "./Pages/ConcessionsPages/Header";
 import Booking from "./Pages/Booking/Booking";
-
 import { AuthContext } from "./context/AuthContext";
 import Profilpage from "./Pages/Profil/Profilpage";
 import Comming from "./Pages/Comming/Comming";
@@ -22,7 +21,7 @@ const App = () => {
   const { user} = useContext(AuthContext);
   return (
 
-    <CartProvider>
+    
     <BrowserRouter>
       <div className="app-contanier">
         <Navbar>
@@ -46,7 +45,7 @@ const App = () => {
         <Footer />
       </div>
     </BrowserRouter>
-   </CartProvider>
+
   );
 };
 

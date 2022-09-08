@@ -12,7 +12,7 @@ export const View = ({movies,deleteMovie}) => {
                <div className='container'>
                 <ul>
                 
-                <h3>{movie.Title}</h3>
+                <h3>{movie.title}</h3>
                 <h5>{movie.genre}</h5>
                 <p>{movie.description}</p>
                 <p>{movie.duration}</p>
