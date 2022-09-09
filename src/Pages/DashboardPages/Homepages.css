@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper{
+    overflow-x: hidden;
+    overflow-y: auto;    
+}
+
+.wrapper h1{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.wrapper p{
+    
+    margin-top: 7px;
+
+}
+
+.wrapper .main{
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.wrapper .form-container{
+    width: 400px;
+   
+    background: #FF9933;
+    margin: 20px auto;
+    padding: 20px;  
+    text-align:center 
+}
+
+.wrapper .form-container .btn{
+   width:100px;
+   color: green;
+   margin:20px
+
+}
+
+.wrapper .view-container{
+    
+    background-color: #e4e4e4;
+    margin: 20px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.delete-btn{
+    
+    cursor: pointer;
+}
+
+tbody{
+    margin-top: 25px;
+}
+
+input {
+    width:50%;
+    padding:10px;
+    margin-top:10px;
+    
+}
+
+.form-container button {
+    width:100px;
+    margin-top:20px;
+    padding:5px;
+    color:black;
+    border: none
+}
+
+.view-container button {
+    width:100px;
+    margin-top:20px;
+    padding:5px;
+    color:white;
+    border: none;
+    background-color:red
+}
+
+.body {
+    width:100%
+}
