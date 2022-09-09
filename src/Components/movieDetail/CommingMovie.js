@@ -13,7 +13,7 @@ const CommingMovie = () => {
   return (
     <>
       <div className="container-fluid mx-2">
-        <h2>Comming soon..</h2>
+        <h2 className="text">Comming soon..</h2>
         <div className="row mt-5 mx-2">
           
           <div className="col-md-9">
@@ -26,7 +26,7 @@ const CommingMovie = () => {
                       <div className="col-md-4">
                 <div className="card">
                   <img
-                    className="image-card "
+                    className="image-card"
                     src={values.image}
                     alt="Card image cap"
                   />
