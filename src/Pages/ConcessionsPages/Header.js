@@ -13,7 +13,7 @@ function Header() {
   };
   return (
     <div className="header">
-      <Link to="/Movies">
+      <Link to="/">
         <h3>
           <h3 className="header-h1">Movie Cinema</h3>
         </h3>
