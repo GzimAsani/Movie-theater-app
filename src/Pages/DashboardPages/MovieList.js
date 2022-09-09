@@ -58,4 +58,3 @@ const EditableRow = ({
 };
 
 export default EditableRow;
-

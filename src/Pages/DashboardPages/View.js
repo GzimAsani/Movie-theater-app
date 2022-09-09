@@ -16,8 +16,8 @@ export const View = ({movies,deleteMovie}) => {
                 <h5>{movie.genre}</h5>
                 <p>{movie.description}</p>
                 <p>{movie.duration}</p>
-                <p>{movie.relasedate}</p>
-                <p>{movie.country}</p>
+                <p>{movie.date}</p>
+                <p>{movie.language}</p>
                 </ul>
                  </div>
                 <br></br>        
