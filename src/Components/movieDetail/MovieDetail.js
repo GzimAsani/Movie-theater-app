@@ -23,7 +23,7 @@ function MovieDetail() {
       }
     };
     fetchSingleMovie();
-  }, []);
+  }, [id]);
 
   return loading ? (
     <h1>Loading</h1>
