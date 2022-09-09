@@ -36,3 +36,12 @@
   transform: scale(1.1);
   background: #d67819;
 }
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+
+}
+.banner:hover .middle {
+  opacity: 1;
+}
+

@@ -3,6 +3,7 @@ import Movie from "./Movie";
 import { FaChevronDown } from "react-icons/fa";
 import { AiFillCalendar } from "react-icons/ai";
 import { MdOutlineMovieFilter } from "react-icons/md";
+import ClipLoader from "react-spinners/ClipLoader";
 import "./Show.css";
 const genres = [
   "Action",
@@ -107,7 +108,7 @@ function Show() {
       
       <div className="nowshowing_movies">
         {loading ? (
-          <h4>Loading ...</h4>
+          <ClipLoader color={" #ff8e3c"} loading={loading} size={50} />
         ) : (
           movies
             .filter((value) => {
