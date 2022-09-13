@@ -6,6 +6,9 @@ function SignUp() {
   const initialValues = {
     username: "",
     email: "",
+    street:"",
+    city:"",
+    postalCode:"",
     password: "",
     confirmPassword: "",
   };
@@ -33,6 +36,9 @@ function SignUp() {
         body: JSON.stringify({
           username: formValues.username,
           email: formValues.email,
+          street:formValues.street,
+          city: formValues.city,
+          postalCode:formValues.postalCode,
           password: formValues.password,
         }),
       })
@@ -56,6 +62,15 @@ function SignUp() {
       errors.email = "Email is required!";
     } else if (!regex.test(values.email)) {
       errors.email = "This is not a valid email format!";
+    }
+    if (!values.street) {
+      errors.street = "Street is required!";
+    }
+    if (!values.city) {
+      errors.city = "City is required!";
+    }
+    if (!values.postalCode) {
+      errors.postalCode = "PostalCode is required!";
     }
     if (!values.password) {
       errors.password = "Password is required";
@@ -97,7 +112,37 @@ function SignUp() {
               onChange={handleChange}
             />
           </div>
-          <p>{formErrors.email}</p>
+          <p>{formErrors.street}</p>
+          <div className="field">
+            <input
+              type="text"
+              name="street"
+              placeholder="Street"
+              value={formValues.street}
+              onChange={handleChange}
+            />
+          </div>
+          <p>{formErrors.street}</p>
+          <div className="field">
+            <input
+              type="text"
+              name="city"
+              placeholder="City"
+              value={formValues.city}
+              onChange={handleChange}
+            />
+          </div>
+          <p>{formErrors.city}</p>
+          <div className="field">
+            <input
+              type="text"
+              name="postalCode"
+              placeholder="PostalCode"
+              value={formValues.postalCode}
+              onChange={handleChange}
+            />
+          </div>
+          <p>{formErrors.postalCode}</p>
           <div className="field">
             <input
               type="password"

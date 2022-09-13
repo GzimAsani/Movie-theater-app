@@ -15,6 +15,7 @@
   }
 
   .homepage {
+    margin: 20px;
     height: 80vh;
     background: url("img/beast banner.jpg");
   }
@@ -103,5 +104,13 @@
   .galeria:hover {
     height: 34px;
     width: 34px;
+  }
+  .comingMovie-image{
+    border-radius: 10px;
+    width: 300px;
+    height: 200px;
+  }
+  .comingMovie-title{
+    color: white;
   }
   
