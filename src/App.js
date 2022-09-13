@@ -13,7 +13,7 @@ import BookScreen from "./Pages/ConcessionsPages/BookScreen";
 import Header from "./Pages/ConcessionsPages/Header";
 import Booking from "./Pages/Booking/Booking";
 import { AuthContext } from "./context/AuthContext";
-import Profilpage from "./Pages/Profil/Profilpage";
+import Profile from "./Pages/Profile/Profile";
 import Comming from "./Pages/Comming/Comming";
 
 
@@ -37,7 +37,7 @@ const App = () => {
               path={`/:id/MovieDetail`}
               element={user ? <MovieDetail /> : <Login />}
             />
-            <Route path="/profile" element={user ? <Profilpage/> : <Login />}/>
+            <Route path="/profile" element={user ? <Profile/> : <Login />}/>
             <Route path="/SignUp" element={user ? <Movies /> : <SignUp />} />
             <Route path="/Login" element={user ? <Movies /> : <Login />} />
           </Routes>
