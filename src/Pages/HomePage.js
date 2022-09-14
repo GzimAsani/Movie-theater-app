@@ -2,8 +2,11 @@ import React from "react";
 import arrow from "./img/arrrow.png";
 import "./homePage.css";
 import { useNavigate } from "react-router-dom";
+import Categories from "./ComingMovieData";
+import { useState } from "react";
 
 function Homepages() {
+  const [data, setData]  = useState(Categories)
   let navigate = useNavigate();
   const handleNavigate = () => {
     navigate("/4/movieDetail");
@@ -23,52 +26,27 @@ function Homepages() {
         </button>
       </div>
       <div className="movie-list-container">
-        <h1 className="movie-list-title">GALLERY</h1>
+        <h1 className="movie-list-title">Coming soon</h1>
         <img className="galeria" src={arrow} alt="gallery" />
         <div className="movie-list-wrapper">
           <div className="movie-list">
-            <div className="movie-list-item">
-              <img
-                className="movie-list-item-img"
-                src="https://dx35vtwkllhj9.cloudfront.net/universalstudios/beast/images/gallery/image4.jpg"
-                alt="gallery"
-              />
-            </div>
-            <div className="movie-list-item">
-              <img
-                className="movie-list-item-img"
-                src="https://images.squarespace-cdn.com/content/v1/58aabe1e9f74561f4dc712dd/1660062967706-PPBEGM17PKI4AACUEDM8/beast-movie-review-2022-idris-elba.jpg?format=1500w"
-                alt="gallery"
-              />
-            </div>
-            <div className="movie-list-item">
-              <img
-                className="movie-list-item-img"
-                src="https://nypost.com/wp-content/uploads/sites/2/2022/08/beast_movie_review.jpg"
-                alt="gallery"
-              />
-            </div>
-            <div className="movie-list-item">
-              <img
-                className="movie-list-item-img"
-                src="https://www.independent.ie/entertainment/movies/movie-reviews/987fe/41937677.ece/AUTOCROP/w1240h700/IF%20beast_idris_elba"
-                alt="gallery"
-              />
-            </div>
-            <div className="movie-list-item">
-              <img
-                className="movie-list-item-img"
-                src="https://variety.com/wp-content/uploads/2022/08/MCDBEAS_UV008.jpg?w=681&h=383&crop=1"
-                alt="gallery"
-              />
-            </div>
-            <div className="movie-list-item">
-              <img
-                className="movie-list-item-img"
-                src="https://cdn.primedia.co.za/primedia-broadcasting/image/upload/c_fill,h_289,w_463/awgryjs7mlwmgn78chtt"
-                alt="gallery"
-              />
-            </div>
+          {data.map((values)=> {
+                return(
+                  <>
+                    
+                <div className="comingMovie-contanier">
+                  <img
+                    className="comingMovie-image"
+                    src={values.image}
+                    alt="Card image cap"
+                  />
+                   <div className="comingMovie-title">{values.title}</div>
+                </div>
+              
+                  </>
+                )
+
+              })}
           </div>
         </div>
       </div>
