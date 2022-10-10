@@ -1,15 +1,18 @@
-
-import React from 'react'
-import "./Dashboard.css"
-import { Route, Link, Routes } from "react-router-dom";
-import  Homepages from "../Pages/DashboardPages/Homepages";
+import React from "react";
+import "./Dashboard.css";
+import Homepages from "../Pages/DashboardPages/Homepages";
+import Navbar from "../Components/navbar/NavBar";
+import Header from "./ConcessionsPages/Header";
 
 function Dashboard() {
   return (
-    <div>
-    <Homepages />
-  </div>
-  )
+    <div className="dashboardi">
+      <Navbar>
+        <Header />
+        <Homepages />
+      </Navbar>
+    </div>
+  );
 }
 
-export default Dashboard
+export default Dashboard;

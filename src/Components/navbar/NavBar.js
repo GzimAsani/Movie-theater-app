@@ -1,13 +1,17 @@
 
 import React, { useState } from "react";
-import {  FaTh, FaBars,FaClock, FaCheck } from "react-icons/fa";
+import {  FaTh, FaBars,FaClock, FaCheck,FaUserLock } from "react-icons/fa";
 import {GiPopcorn  } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 import "./navbar.css";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const Navbar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+
+  const { user } = useContext(AuthContext);
   const menuItem = [
     {
       path: "/dashboard",
@@ -32,7 +36,7 @@ const Navbar = ({ children }) => {
   ];
   return (
     <div className="container">
-      <div style={{ width: isOpen ? "200px" : "50px" }} className="sidebar">
+      <div style={{ width: isOpen ? "250px" : "50px" }} className="sidebar">
         <div className="top_section">
           <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
             Cinema
@@ -41,6 +45,21 @@ const Navbar = ({ children }) => {
             <FaBars onClick={toggle} />
           </div>
         </div>
+        {user && user.isadmin && <NavLink
+            to="/admin"
+            className="link"
+            activeclassName="active"
+          >
+            <div className="icon">{<FaUserLock />}</div>
+            <div
+              style={{ display: isOpen ? "block" : "none" }}
+              className="link_text"
+            >
+              AdminPanel
+            </div>
+          </NavLink>
+
+        }
         {menuItem.map((item, index) => (
           <NavLink
             to={item.path}

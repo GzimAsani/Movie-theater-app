@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "./login.css";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import Header from "../../Pages/ConcessionsPages/Header";
+import Cookies from "universal-cookie";
 
 function Login() {
   const initialValues = { username: "", password: "", data: "" };
@@ -10,7 +12,7 @@ function Login() {
   const [formErrors, setFormErrors] = useState({});
   const [wrongcredentials, setwrongcredentials] = useState(true);
   const [isSubmit, setIsSubmit] = useState(false);
-
+  const cookies = new Cookies();
   const { dispatch } = useContext(AuthContext);
 
   let navigate = useNavigate();
@@ -48,9 +50,10 @@ function Login() {
       })
         .then((response) => response.json())
         .then((data) => {
-          if (data.id) {
-            dispatch({ type: "LOGIN_SUCCESS", payload: data });
+          if (data.user.id) {
+            dispatch({ type: "LOGIN_SUCCESS", payload: data.user });
             navigate("/movies");
+            // cookies.set("access_token", data.accessToken, { path: "/" });
           } else {
             setwrongcredentials(false);
           }
@@ -59,42 +62,45 @@ function Login() {
   }, [formErrors]);
 
   return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <div className="login-title">
-          <h2>Login Form</h2>
-          <h3>EaglesCinema</h3>
-        </div>
-        <div className="ui divider"></div>
-        <div className="ui form">
-          <div className="field">
-            <input
-              type="text"
-              name="username"
-              placeholder="Username"
-              value={formValues.username}
-              onChange={handleChange}
-            />
+    <>
+      <Header />
+      <div className="login-container">
+        <form className="login-form" onSubmit={handleSubmit}>
+          <div className="login-title">
+            <h2>Login Form</h2>
+            <h3>EaglesCinema</h3>
           </div>
-          <p>{formErrors.username}</p>
-          <div className="field">
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formValues.password}
-              onChange={handleChange}
-            />
-          </div>
-          {!wrongcredentials && (
-            <p className="login-container">Wrong pasword or username</p>
-          )}
-          <p>{formErrors.password}</p>
+          <div className="ui divider"></div>
+          <div className="ui form">
+            <div className="field">
+              <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                value={formValues.username}
+                onChange={handleChange}
+              />
+            </div>
+            <p>{formErrors.username}</p>
+            <div className="field">
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formValues.password}
+                onChange={handleChange}
+              />
+            </div>
+            {!wrongcredentials && (
+              <p className="login-container1">Wrong pasword or username</p>
+            )}
+            <p>{formErrors.password}</p>
 
-          <button className="login-button ">Submit</button>
-        </div>
-      </form>
-    </div>
+            <button className="login-button ">Submit</button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 }
 

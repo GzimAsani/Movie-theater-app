@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   margin: auto;
-  margin-top: 60px;
+  height: 70vh;
 }
 .login-form {
   background-color: #121418;
@@ -45,6 +45,10 @@
   cursor: pointer;
   background-color: #ff8e3c;
   color: white;
+}
+.login-container1 {
+  margin-top: 0;
+  color: red;
 }
 .login-container p {
   margin-top: 0;

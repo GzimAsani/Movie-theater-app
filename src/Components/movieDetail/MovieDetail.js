@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./movieDetail.css";
+import Navbar from "../navbar/NavBar";
+import Header from "../../Pages/ConcessionsPages/Header";
 
 function MovieDetail() {
   const [movie, setMovie] = useState({});
@@ -28,30 +30,33 @@ function MovieDetail() {
   return loading ? (
     <h1>Loading</h1>
   ) : (
-    <div className="movieDetail-contanier">
-      <img alt="posteri" src={movie.posterimg} />
-      <div className="movie">
-        <h1>{movie.title}</h1>
-        <h4>{movie.description}</h4>
-        <div className="movie-text">
-          <p>
-            <span className="movie-span">Release Date </span> -{" "}
-            {movie.releasedate}
-          </p>
-          <p>
-            <span className="movie-span">Duration of the film</span> -{" "}
-            {movie.duration}min
-          </p>
-          <p>
-            <span className="movie-span">State</span> - {movie.country}
-          </p>
-          <p>
-            <span className="movie-span">Genre</span> - {movie.genre}
-          </p>
+    <Navbar>
+      <Header />
+      <div className="movieDetail-contanier">
+        <img alt="posteri" src={movie.posterimg} />
+        <div className="movie">
+          <h1>{movie.title}</h1>
+          <h4>{movie.description}</h4>
+          <div className="movie-text">
+            <p>
+              <span className="movie-span">Release Date </span> -{" "}
+              {movie.releasedate}
+            </p>
+            <p>
+              <span className="movie-span">Duration of the film</span> -{" "}
+              {movie.duration}min
+            </p>
+            <p>
+              <span className="movie-span">State</span> - {movie.country}
+            </p>
+            <p>
+              <span className="movie-span">Genre</span> - {movie.genre}
+            </p>
+          </div>
+          <div className="line"></div>
         </div>
-        <div className="line"></div>       
       </div>
-    </div>
+    </Navbar>
   );
 }
 export default MovieDetail;

@@ -9,7 +9,7 @@ function Header() {
   const deleteuser = () => {
     localStorage.clear();
     window.location.reload(false);
-    navigate("/movies")
+    navigate("/");
   };
   return (
     <div className="header">
@@ -19,14 +19,14 @@ function Header() {
         </h3>
       </Link>
       {user ? (
-            <div className="header-right-SignUp useri">
-              <Link to="/profile" className="name">{user.username}</Link>
-              <button className="button-18" onClick={deleteuser}>
-              Sign out
-            </button>
-            </div>
-            
-          
+        <div className="header-right-SignUp useri">
+          <Link to="/profile" className="name">
+            {user.username}
+          </Link>
+          <button className="button-18" onClick={deleteuser}>
+            Sign out
+          </button>
+        </div>
       ) : (
         <div className="header-right">
           <div className="header-right-SignUp">

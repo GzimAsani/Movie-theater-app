@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./signUp.css";
+import Header from "../../Pages/ConcessionsPages/Header";
 
 function SignUp() {
   const initialValues = {
@@ -59,8 +60,8 @@ function SignUp() {
     }
     if (!values.password) {
       errors.password = "Password is required";
-    } else if (values.password.length < 4) {
-      errors.password = "Password must be more than 4 characters";
+    } else if (values.password.length < 6) {
+      errors.password = "Password must be more than 6 characters";
     } else if (values.password.length > 16) {
       errors.password = "Password cannot exceed more than 16 characters";
     } else if (values.password !== values.confirmPassword) {
@@ -70,58 +71,61 @@ function SignUp() {
   };
 
   return (
-    <div className="signUp-container">
-      <form className="signUp-form" onSubmit={handleSubmit}>
-        <div className="signUp-title">
-          <h2>Login Form</h2>
-          <h3>EaglesCinema</h3>
-        </div>
-        <div className="ui divider"></div>
-        <div className="ui form">
-          <div className="field">
-            <input
-              type="text"
-              name="username"
-              placeholder="Username"
-              value={formValues.username}
-              onChange={handleChange}
-            />
+    <>
+      <Header />
+      <div className="signUp-container">
+        <form className="signUp-form" onSubmit={handleSubmit}>
+          <div className="signUp-title">
+            <h2>Login Form</h2>
+            <h3>EaglesCinema</h3>
           </div>
-          <p>{formErrors.username}</p>
-          <div className="field">
-            <input
-              type="text"
-              name="email"
-              placeholder="Email"
-              value={formValues.email}
-              onChange={handleChange}
-            />
+          <div className="ui divider"></div>
+          <div className="ui form">
+            <div className="field">
+              <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                value={formValues.username}
+                onChange={handleChange}
+              />
+            </div>
+            <p>{formErrors.username}</p>
+            <div className="field">
+              <input
+                type="text"
+                name="email"
+                placeholder="Email"
+                value={formValues.email}
+                onChange={handleChange}
+              />
+            </div>
+            <p>{formErrors.email}</p>
+            <div className="field">
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formValues.password}
+                onChange={handleChange}
+              />
+            </div>
+            <p>{formErrors.password}</p>
+            <div className="field">
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="confirmPassword"
+                value={formValues.confirmPassword}
+                onChange={handleChange}
+              />
+            </div>
+            <p>{formErrors.confirmPassword}</p>
+            <button className="signUp-button ">Submit</button>
           </div>
-          <p>{formErrors.email}</p>
-          <div className="field">
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formValues.password}
-              onChange={handleChange}
-            />
-          </div>
-          <p>{formErrors.password}</p>
-          <div className="field">
-            <input
-              type="password"
-              name="confirmPassword"
-              placeholder="confirmPassword"
-              value={formValues.confirmPassword}
-              onChange={handleChange}
-            />
-          </div>
-          <p>{formErrors.confirmPassword}</p>
-          <button className="signUp-button ">Submit</button>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
+    </>
   );
 }
 
