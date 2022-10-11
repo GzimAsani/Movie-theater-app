@@ -1,21 +1,35 @@
 const Categories= [
     {
         id:1,
-        title: "Tilipans",
-        price: 213,
-        image: "https://www.tv5mondeplus.com/api/tv/v1/680x400/assets.tv5mondeplus.com/imagescaler002/tv5monde/tv5mondeplus/assets/106614281_74079A/posters/7821311b706ade34530d465ff4c73798/7821311b706ade34530d465ff4c73798.jpg",
+        title: "The 355",
+        image: "https://movies.universalpictures.com/media/355-poster-560x880-615f7919a99f0-1.jpg",
     },
     {
         id:2,
-        title: "Tilipans",
-        price: 213,
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ4w01GwFUIhjW28Fro_7FLJ8BTc1ov33rZbJUsLWqFRxtKNgFECGJeCbPc6aPL45mhrw&usqp=CAU",
+        title: "Death on the Nile",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR-82eYKP8pqq4k_No2IVdj1GJ5JkILlHM1kMJZMf1o8A5WGDR",
     },
     {
         id:3,
-        title: "Tilipans",
-        price: 213,
-        image: "https://www.wolftrap.org/-/media/imagesnew/22filene/encanto-desktop.jpg",
+        title: "Nope",
+        image: "https://dx35vtwkllhj9.cloudfront.net/universalstudios/nope/images/gallery/image1.jpg",
+    }
+    ,{
+        id:4,
+        title: "Don't Worry Darling",
+        image: "https://upload.wikimedia.org/wikipedia/en/4/4c/Don't_Worry_Darling_Poster_2.jpg",
+    },{
+        id:5,
+        title: "The Woman King",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWsNhTsRFsqj4YIL4ClubNE1tVaRbkXEwLK8AjH9aa1XpbzxeR",
+    },{
+        id:6,
+        title: "Blonde",
+        image: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQbNJAbGvuIaKs4Gorgdmu0F64RJzUgMK13glIwNpCWmtcp2UAN",
+    },{
+        id:7,
+        title: "Lyle, Lyle, Crocodile",
+        image: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRNTauUBqxbjLkChRAYke1krm7LXrBRWiXww1E2VLuN17Tbbx-U",
     }
 ]
 

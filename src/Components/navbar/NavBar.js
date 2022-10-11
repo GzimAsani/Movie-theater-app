@@ -28,11 +28,6 @@ const Navbar = ({ children }) => {
       name: "Booking",
       icon:<FaCheck />
     },
-    {
-      path: "/Comming",
-      name: "Comming",
-      icon:<FaClock />
-    },
   ];
   return (
     <div className="container">

@@ -17,13 +17,14 @@
 
 .homepage {
   height: 80vh;
-  background: url("img/beast banner.jpg") ;
+  background: url("img/blackadam.jpg") ;
+  background-size: cover;
 }
 
 .homepage-title {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 4rem;
-  padding-top: 28%;
+  padding-top: 25%;
   padding-left: 30px;
 }
 

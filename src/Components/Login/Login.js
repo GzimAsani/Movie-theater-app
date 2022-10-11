@@ -4,7 +4,6 @@ import "./login.css";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import Header from "../../Pages/ConcessionsPages/Header";
-import Cookies from "universal-cookie";
 
 function Login() {
   const initialValues = { username: "", password: "", data: "" };
@@ -12,7 +11,6 @@ function Login() {
   const [formErrors, setFormErrors] = useState({});
   const [wrongcredentials, setwrongcredentials] = useState(true);
   const [isSubmit, setIsSubmit] = useState(false);
-  const cookies = new Cookies();
   const { dispatch } = useContext(AuthContext);
 
   let navigate = useNavigate();
@@ -40,7 +38,7 @@ function Login() {
   };
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      fetch("https://hidden-lowlands-43310.herokuapp.com/api/auth/login", {
+      fetch("/auth/login", {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -50,10 +48,9 @@ function Login() {
       })
         .then((response) => response.json())
         .then((data) => {
-          if (data.user.id) {
+          if (data.user) {
             dispatch({ type: "LOGIN_SUCCESS", payload: data.user });
             navigate("/movies");
-            // cookies.set("access_token", data.accessToken, { path: "/" });
           } else {
             setwrongcredentials(false);
           }

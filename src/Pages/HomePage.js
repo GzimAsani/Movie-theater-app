@@ -5,11 +5,13 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/navbar/NavBar";
 import Header from "./ConcessionsPages/Header";
 import Carousel from "react-elastic-carousel";
+import CommingMovie from "../Components/movieDetail/CommingMovie";
+import Offer from "./Offers/Offer";
 
 function Homepages() {
   let navigate = useNavigate();
   const handleNavigate = () => {
-    navigate("/4/movieDetail");
+    navigate("/Booking");
   };
 
   return (
@@ -17,70 +19,75 @@ function Homepages() {
       <Navbar>
         <Header />
         <div className="homepage">
-          <h1 className="homepage-title">BEAST</h1>
-          <p className="homepage-tekst">
-            A father and his two teenage daughters find themselves hunted by a
-            massive rogue lion intent on proving that the Savanna has but one
-            apex predator.
-          </p>
-          <button onClick={handleNavigate} className="homepage-buton">
-            BOOK TICKET NOW
-          </button>
+          <div className="infos">
+            <h1 className="homepage-title">BLACK ADAM</h1>
+            <p className="homepage-tekst">
+              Nearly 5,000 years after he was bestowed with the almighty powers
+              of the Egyptian gods-and imprisoned just as quickly-Black Adam
+              (Johnson) is freed from his earthly tomb, ready to unleash his
+              unique form of justice on the modern world.
+            </p>
+            <button onClick={handleNavigate} className="homepage-buton">
+              BOOK TICKET NOW
+            </button>
+          </div>
         </div>
-        
-          <div className="movie-list-container">
-            <h1 className="movie-list-title">GALLERY</h1>
-            <img className="galeria" src={arrow} alt="gallery" />
-            <div className="movie-list-wrapper">
-              <div className="movie-list">
-              <Carousel itemsToShow={4}>
+
+        <div className="movie-list-container">
+          <h1 className="movie-list-title">GALLERY</h1>
+          <img className="galeria" src={arrow} alt="gallery" />
+          <div className="movie-list-wrapper">
+            <div className="movie-list">
+              <Carousel itemsToShow={5}>
                 <div className="movie-list-item">
                   <img
                     className="movie-list-item-img"
-                    src="https://dx35vtwkllhj9.cloudfront.net/universalstudios/beast/images/gallery/image4.jpg"
+                    src="https://m.media-amazon.com/images/M/MV5BMDcyZjU4OTQtNzBiOC00NGFlLThlMWItZDVlYTU4MjBlYjE5XkEyXkFqcGdeQWFybm8@._V1_.jpg"
                     alt="gallery"
                   />
                 </div>
                 <div className="movie-list-item">
                   <img
                     className="movie-list-item-img"
-                    src="https://images.squarespace-cdn.com/content/v1/58aabe1e9f74561f4dc712dd/1660062967706-PPBEGM17PKI4AACUEDM8/beast-movie-review-2022-idris-elba.jpg?format=1500w"
+                    src="https://www.denofgeek.com/wp-content/uploads/2022/07/black-adam-dwayne-johnson.jpg"
                     alt="gallery"
                   />
                 </div>
                 <div className="movie-list-item">
                   <img
                     className="movie-list-item-img"
-                    src="https://nypost.com/wp-content/uploads/sites/2/2022/08/beast_movie_review.jpg"
+                    src="https://static.hitek.fr/img/actualite/ill_m/726221990/blackadambandeannoncewarner.png"
                     alt="gallery"
                   />
                 </div>
                 <div className="movie-list-item">
                   <img
                     className="movie-list-item-img"
-                    src="https://www.independent.ie/entertainment/movies/movie-reviews/987fe/41937677.ece/AUTOCROP/w1240h700/IF%20beast_idris_elba"
+                    src="https://m.media-amazon.com/images/M/MV5BNTAzYzk0MzktY2Y2MC00YWIwLTllODktYWYwNjI3ZjY3NGY5XkEyXkFqcGdeQWpnYW1i._V1_QL75_UY281_CR0,0,500,281_.jpg"
                     alt="gallery"
                   />
                 </div>
                 <div className="movie-list-item">
                   <img
                     className="movie-list-item-img"
-                    src="https://variety.com/wp-content/uploads/2022/08/MCDBEAS_UV008.jpg?w=681&h=383&crop=1"
+                   
+                    src="https://imageio.forbes.com/specials-images/imageserve/630e74cd45ded0a511ff61b1/2022-Comic-Con-International--San-Diego---Cosplay-And-General-Atmosphere/960x0.jpg?format=jpg&width=960"
                     alt="gallery"
                   />
                 </div>
                 <div className="movie-list-item">
                   <img
                     className="movie-list-item-img"
-                    src="https://cdn.primedia.co.za/primedia-broadcasting/image/upload/c_fill,h_289,w_463/awgryjs7mlwmgn78chtt"
+                    src="https://media1.popsugar-assets.com/files/thumbor/yirFsZurIYjIULA5YC4TOpsNwpU/fit-in/728xorig/filters:format_auto-!!-:strip_icc-!!-/2022/09/09/682/n/1922283/62b22e77631b5a69ef2876.78389369_/i/black-adam-movie-details.jpg"
                     alt="gallery"
                   />
                 </div>
-                </Carousel>
-              </div>
+              </Carousel>
             </div>
           </div>
-        
+        </div>
+        <CommingMovie />
+        <Offer />
       </Navbar>
     </div>
   );

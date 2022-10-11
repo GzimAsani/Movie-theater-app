@@ -12,7 +12,6 @@ import BookScreen from "./Pages/ConcessionsPages/BookScreen";
 import Booking from "./Pages/Booking/Booking";
 import { AuthContext } from "./context/AuthContext";
 import Profilpage from "./Pages/Profil/Profilpage";
-import Comming from "./Pages/Comming/Comming";
 import Home from "./Components/AdminpanelPages/home/Home";
 import List from "./Components/AdminpanelPages/list/List";
 import Single from "./Components/AdminpanelPages/single/Single";
@@ -39,7 +38,6 @@ const App = ({columns}) => {
           <Route path="/" element={<HomePage />} />
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/Booking" element={<Booking />} />
-          <Route path="/Comming" element={<Comming />} />
           <Route path="/Movies/*" element={<Movies />} />
           <Route path="/BookScreen" element={<BookScreen />} />
           <Route

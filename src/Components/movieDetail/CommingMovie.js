@@ -4,40 +4,31 @@ import "./CommingMovies.css";
 
 const CommingMovie = () => {
   return (
-    <>
-      <div className="container-fluid mx-2">
-        <h2 className="text">Comming soon..</h2>
-        <div className="row mt-5 mx-2">
-          <div className="col-md-9">
-            <div className="row w-200">
-              {Categories.map((values) => {
-                return (
-                  <>
-                    <div className="col-md-4">
-                      <div className="card">
-                        <img
-                          className="image-card"
-                          src={values.image}
-                          alt="Card"
-                        />
-                        <div className="card-body">
-                          <h5 className="card-title">{values.title}</h5>
-                          <p className="card-price">Price: 211/-</p>
-                          <p className="card-text">
-                            Some quick example text to build on the card title
-                            and make up the bulk of the card's content.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </>
-                );
-              })}
-            </div>
+    <div>
+      <h2 className="text">COOMING SOON...</h2>
+      <div className="kontainer">
+        <div className="coming">
+          <div className="comingmovies">
+            {Categories.map((cat) => {
+              return (
+                <div
+                  className="banner bord"
+                  style={{
+                    backgroundSize: "cover",
+                    backgroundImage: `url("${cat.image}")`,
+                    backgroundPosition: "center center",
+                  }}
+                >
+                  <div className="middle">
+                    <h2 className="movie_title">{cat.title}</h2>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

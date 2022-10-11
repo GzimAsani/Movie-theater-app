@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import "./movieDetail.css";
 import Navbar from "../navbar/NavBar";
 import Header from "../../Pages/ConcessionsPages/Header";
+import { AiFillHeart } from "react-icons/ai";
 
 function MovieDetail() {
   const [movie, setMovie] = useState({});
@@ -33,9 +34,39 @@ function MovieDetail() {
     <Navbar>
       <Header />
       <div className="movieDetail-contanier">
-        <img alt="posteri" src={movie.posterimg} />
+        <div
+          className="banner1"
+          style={{
+            backgroundSize: "cover",
+            backgroundImage: `radial-gradient(circle, rgba(0,0,0,0.5690651260504201) 0%, rgba(0,0,0,1) 100%),url("${movie.posterimg}")`,
+            backgroundPosition: "center center",
+          }}
+        >
+          <div className="details">
+            <img className="banner ban" src={movie.movieimg} alt="" />
+            <div>
+              <h1 className="titulli1">{movie.title}</h1>
+              <div className="rate">
+                <div className="heart">
+                  <AiFillHeart size={40} className="zemra" />
+                  <h2>86%</h2>
+                </div>
+                <p>52.5K ratings...</p>
+              </div>
+              <div className="review">
+                <h3>Add your rating & review</h3>
+                <p>Your ratings matter</p>
+                <button className="butoni1">Rate now</button>
+              </div>
+              <div className="details1">
+                <button className="butoni1 butt">BOOK TICKET NOW</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="movie">
-          <h1>{movie.title}</h1>
+          <h1>ABOUT THE MOVIE</h1>
           <h4>{movie.description}</h4>
           <div className="movie-text">
             <p>
