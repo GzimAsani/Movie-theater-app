@@ -11,17 +11,10 @@ const CommingMovie = () => {
           <div className="comingmovies">
             {Categories.map((cat) => {
               return (
-                <div
-                  className="banner bord"
-                  style={{
-                    backgroundSize: "cover",
-                    backgroundImage: `url("${cat.image}")`,
-                    backgroundPosition: "center center",
-                  }}
-                >
-                  <div className="middle">
-                    <h2 className="movie_title">{cat.title}</h2>
-                  </div>
+                <div className="com" >
+                  <img className="banner bord" src={cat.image} alt="" />
+                  <h2 >{cat.title}</h2>
+                  <button className="butoni1">PREORDER NOW</button>
                 </div>
               );
             })}

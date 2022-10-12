@@ -21,13 +21,32 @@
 }
 
 .bord {
-    border: 1px solid orange !important;
+    border: 2px solid orange !important;
+    cursor: pointer;
 }
 
 .movietitle{
     color: white;
 }
 
-.banner:hover {
+
+.com {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    padding-bottom: 10px;
+}
+
+.com h2 {
+    color: rgb(243, 197, 141);
+}
+
+.com button {
+    background: orangered;
+    transition: 0.5s;
+}
+.com button:hover {
     background: orange;
 }
