@@ -29,11 +29,9 @@ function Show() {
     );
     if (filterMoviesByGenre.length > 0) {
       setMovies(filterMoviesByGenre);
-    }
-    else if(e.target.value==="all") {
+    } else if (e.target.value === "all") {
       setMovies(filteredMovies);
-    }
-    else {
+    } else {
       setMovies(filteredMovies);
     }
   };
@@ -47,11 +45,9 @@ function Show() {
     );
     if (filterMoviesByDate.length > 0) {
       setMovies(filterMoviesByDate);
-    } 
-    else if (e.target.value === "all") {
+    } else if (e.target.value === "all") {
       setMovies(filteredMovies);
-    }
-    else {
+    } else {
       setMovies(filteredMovies);
     }
   };
@@ -92,13 +88,13 @@ function Show() {
           <FaChevronDown className="select-icon" />
         </div>
         <div className="nowshowing-search">
-        <input
-          className="nowshowing-searchBar"
-          type="text"
-          placeholder="Search Movie"
-          onChange={(e) => setSearchTitle(e.target.value)}
-        />
-      </div>
+          <input
+            className="nowshowing-searchBar"
+            type="text"
+            placeholder="Search Movie"
+            onChange={(e) => setSearchTitle(e.target.value)}
+          />
+        </div>
         <div className="nowshowing-form-select">
           <MdOutlineMovieFilter className="nowshowing-customIcon" />
           <select onChange={handleGenre} value={genre}>
@@ -115,10 +111,10 @@ function Show() {
           <FaChevronDown className="select-icon" />
         </div>
       </div>
-      
+
       <div className="nowshowing_movies">
         {loading ? (
-         <h1>loading</h1>
+          <h1>loading</h1>
         ) : (
           movies
             .filter((value) => {
@@ -138,10 +134,6 @@ function Show() {
                 id={movie.movieid}
                 name={movie.title}
                 image={movie.movieimg}
-                date={movie.releasedate}
-                language={movie.movielanguage}
-                overview={movie.description}
-                img={movie.movieimg}
               />
             ))
         )}

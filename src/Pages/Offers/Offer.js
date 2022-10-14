@@ -4,7 +4,7 @@ import "./offer.css";
 function Offer() {
   return (
     <div className="ofertat">
-      <h1 className="offers">Offers</h1>
+      
       <div className="oferta">
         <div>
           <img

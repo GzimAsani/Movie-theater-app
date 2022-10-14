@@ -4,15 +4,25 @@ import "./movieDetail.css";
 import Navbar from "../navbar/NavBar";
 import Header from "../../Pages/ConcessionsPages/Header";
 import { AiFillHeart } from "react-icons/ai";
+import Rate from "./Rate";
+import Backdrop from "./Backdrop";
+import Ratings from "./Ratings";
 
 function MovieDetail() {
   const [movie, setMovie] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [showModal, setShowModal] = useState();
   const { id } = useParams();
+
+  function showModalHandler() {
+    setShowModal(true);
+  }
+
+  function closeModalHandler() {
+    setShowModal(false);
+  }
 
   useEffect(() => {
     const fetchSingleMovie = async () => {
-      setLoading(true);
       try {
         const res = await fetch(
           `https://hidden-lowlands-43310.herokuapp.com/api/movies/${id}`
@@ -20,17 +30,14 @@ function MovieDetail() {
 
         const movieData = await res.json();
         setMovie(movieData);
-        setLoading(false);
       } catch (err) {
         console.log(err);
       }
     };
     fetchSingleMovie();
-  }, [id]);
+  }, []);
 
-  return loading ? (
-    <h1>Loading</h1>
-  ) : (
+  return (
     <Navbar>
       <Header />
       <div className="movieDetail-contanier">
@@ -42,6 +49,9 @@ function MovieDetail() {
             backgroundPosition: "center center",
           }}
         >
+          {showModal && (
+            <Rate text="Are you sure?" onClose={closeModalHandler} />
+          )}
           <div className="details">
             <img className="banner ban" src={movie.movieimg} alt="" />
             <div>
@@ -56,12 +66,16 @@ function MovieDetail() {
               <div className="review">
                 <h3>Add your rating & review</h3>
                 <p>Your ratings matter</p>
-                <button className="butoni1">Rate now</button>
+                <button className="butoni1" onClick={showModalHandler}>
+                  Rate now
+                </button>
               </div>
               <div className="details1">
                 <button className="butoni1 butt">BOOK TICKET NOW</button>
               </div>
             </div>
+
+            {showModal && <Backdrop />}
           </div>
         </div>
 
@@ -86,6 +100,7 @@ function MovieDetail() {
           </div>
           <div className="line"></div>
         </div>
+        <Ratings/>
       </div>
     </Navbar>
   );

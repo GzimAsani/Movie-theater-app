@@ -17,7 +17,7 @@
 
 .homepage {
   height: 80vh;
-  background: url("img/blackadam.jpg") ;
+  background: linear-gradient(24deg, rgba(0,0,0,0.8267682072829132) 23%, rgba(253,187,45,0.008841036414565795) 41%),url("img/blackadam.jpg") ;
   background-size: cover;
 }
 

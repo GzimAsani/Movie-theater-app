@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import {  FaTh, FaBars,FaClock, FaCheck,FaUserLock } from "react-icons/fa";
+import {  FaTh, FaBars, FaCheck,FaUserLock } from "react-icons/fa";
 import {GiPopcorn  } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 import "./navbar.css";

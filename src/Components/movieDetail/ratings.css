@@ -1,0 +1,32 @@
+.ratings {
+    margin-top: 5%;
+    margin-left: 40px;
+    width: 95%;
+    border-left: 2px solid gray;
+}
+
+.emri {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.komenti {
+    padding: 10px;
+    background-color: grey;
+    width: 50%;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+.data{
+    width: 50%;
+    font-size: 1.1rem;
+    margin-left: 10px;
+    text-align: end;
+}
+
+.label {
+    
+    font-size: 14px;
+}
+    

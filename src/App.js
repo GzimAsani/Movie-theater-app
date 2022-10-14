@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import HomePage from "./Pages/HomePage";
 import "./app.css";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
@@ -8,7 +8,6 @@ import Footer from "./Components/footer/Footer";
 import SignUp from "./Components/SignUp/SignUp";
 import Login from "./Components/Login/Login";
 import MovieDetail from "./Components/movieDetail/MovieDetail";
-import BookScreen from "./Pages/ConcessionsPages/BookScreen";
 import Booking from "./Pages/Booking/Booking";
 import { AuthContext } from "./context/AuthContext";
 import Profilpage from "./Pages/Profil/Profilpage";
@@ -17,9 +16,9 @@ import List from "./Components/AdminpanelPages/list/List";
 import Single from "./Components/AdminpanelPages/single/Single";
 import New from "./Components/AdminpanelPages/new/New";
 import { productInputs, userInputs } from "./formSource";
-import { movieColumns,userColumns } from "./datatablesource";
+import { movieColumns, userColumns } from "./datatablesource";
 
-const App = ({columns}) => {
+const App = ({ columns }) => {
   const { user } = useContext(AuthContext);
 
   const ProtectedRoute = ({ children }) => {
@@ -39,9 +38,8 @@ const App = ({columns}) => {
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/Booking" element={<Booking />} />
           <Route path="/Movies/*" element={<Movies />} />
-          <Route path="/BookScreen" element={<BookScreen />} />
           <Route
-            path={`/:id/MovieDetail`}
+            path={`/:id/moviedetails`}
             element={user ? <MovieDetail /> : <Login />}
           />
           <Route path="/profile" element={user ? <Profilpage /> : <Login />} />
@@ -87,7 +85,7 @@ const App = ({columns}) => {
                 index
                 element={
                   <ProtectedRoute>
-                    <List columns={movieColumns}/>
+                    <List columns={movieColumns} />
                   </ProtectedRoute>
                 }
               />

@@ -5,17 +5,18 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
-function Movie({ id, name, image, data, month, overview, language }) {
+function Movie({ id, name, image }) {
   const { user } = useContext(AuthContext);
   const [showModal, setShowModal] = useState();
+  const navigate = useNavigate();
 
-  function checkif() {
+  const checkif = () => {
     if (user) {
-      navigate(`../../${id}/movieDetail`);
+      navigate(`../../${id}/moviedetails`);
     } else {
       showModalHandler();
     }
-  }
+  };
 
   function showModalHandler() {
     setShowModal(true);
@@ -24,8 +25,6 @@ function Movie({ id, name, image, data, month, overview, language }) {
   function closeModalHandler() {
     setShowModal(false);
   }
-
-  let navigate = useNavigate();
   return (
     <div className="movie-contanier">
       <div
@@ -37,10 +36,10 @@ function Movie({ id, name, image, data, month, overview, language }) {
         }}
       >
         <div className="middle">
-        <h2 className="movie_title">{name}</h2>
-        <button className="movie-button" onClick={checkif}>
-         Show Movie
-        </button>
+          <h2 className="movie_title">{name}</h2>
+          <button className="movie-button" onClick={checkif}>
+            Show Movie
+          </button>
         </div>
       </div>
       {showModal && <Modal text="Are you sure?" onClose={closeModalHandler} />}
